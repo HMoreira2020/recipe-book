@@ -17,20 +17,20 @@ class RecipesController < ApplicationController
     end 
 
     def show 
-        render json: RecipeSerializer.new(recipes).to_serialized_json
+        render json: RecipeSerializer.new(@recipe).to_serialized_json
     
     end 
 
     def update
-        if recipe.update(recipe_params) 
-            render json: RecipeSerializer.new(recipe).to_serialized_json, status: :updated
+        if @recipe.update(recipe_params) 
+            render json: RecipeSerializer.new(@recipe).to_serialized_json, status: :updated
         else
-            render json: { errors: recipe.errors.full_messages }, status: :not_acceptable
+            render json: { errors: @recipe.errors.full_messages }, status: :not_acceptable
         end
     end 
 
     def destroy
-        recipe.destroy 
+        @recipe.destroy 
     end 
 
     private 

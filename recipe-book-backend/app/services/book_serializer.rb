@@ -5,5 +5,5 @@ class BookSerializer
 
     def to_serialized_json
         @book.to_json(:include => [:recipes])
-      end
+    end
 end 

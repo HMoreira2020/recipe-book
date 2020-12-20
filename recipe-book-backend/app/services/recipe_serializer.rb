@@ -7,5 +7,5 @@ class RecipeSerializer
         @recipe.to_json(:include => {
           :books => {:only => :id}
         })
-      end
+    end
 end 
