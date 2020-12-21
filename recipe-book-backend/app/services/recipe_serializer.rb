@@ -4,8 +4,15 @@ class RecipeSerializer
     end 
 
     def to_serialized_json
-        @recipe.to_json(:include => {
-          :books => {:only => :id}
-        })
+        options = {
+            include: {
+              books: {
+                only: [:id]
+              }
+            },
+            except: [:created_at, :updated_at],
+          }
+        @recipe.to_json(options)
     end
 end 
+

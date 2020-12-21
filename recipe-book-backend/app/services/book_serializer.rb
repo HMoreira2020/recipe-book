@@ -4,6 +4,15 @@ class BookSerializer
     end 
 
     def to_serialized_json
-        @book.to_json(:include => [:recipes])
+        options = {
+            include: {
+              recipes: {
+                except: [:created_at, :updated_at]
+              }
+            },
+            except: [:created_at, :updated_at],
+          }
+        @book.to_json(options)
     end
 end 
+

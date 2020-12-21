@@ -11,7 +11,7 @@ class BooksController < ApplicationController
        if book.save  
            render json: BookSerializer.new(book).to_serialized_json, status: :created 
        else
-           render json: { errors: book.errors.full_messages }, status: :not_acceptable
+           render json: { error: book.errors.full_messages }, status: :not_acceptable
        end
 
    end 
@@ -25,7 +25,7 @@ class BooksController < ApplicationController
     if @book.save 
       render json: BookSerializer.new(@book).to_serialized_json, status: :accepted
     else 
-      render json: { errors: @book.errors.full_messages }
+      render json: { error: @book.errors.full_messages }
     end 
    end 
 
