@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
     before_action :set_recipe, only: [:show, :update, :destroy]
-    before_action :set_recipe, only: [:index]
+    before_action :set_book, only: [:index, :create]
      # get '/recipes', to: 'recipe#index'
     def index
         if params[:book_id]
@@ -14,7 +14,7 @@ class RecipesController < ApplicationController
 
 
     def create 
-        recipe = Recipe.new(recipe_params)
+        recipe = @book.recipes.build(recipe_params)
         if recipe.save  
             render json: RecipeSerializer.new(recipe).to_serialized_json, status: :created 
         else
