@@ -21,21 +21,31 @@ class BooksController < ApplicationController
    end 
 
    def update
-       if @book.update(book_params) 
-           render json: BookSerializer.new(@book).to_serialized_json, status: :updated
-       else
-           render json: { errors: @book.errors.full_messages }, status: :not_acceptable
-       end
+    @book.recipes << @recipe
+    if @book.save 
+      render json: BookSerializer.new(@book).to_serialized_json, status: :accepted
+    else 
+      render json: { errors: @book.errors.full_messages }
+    end 
    end 
 
    def destroy
-       @book.destroy 
-   end 
+        if @book.recipes.include?(@recipe) 
+            @book.recipes.delete(@recipe)
+            render json: BookSerializer.new(@book).to_serialized_json, status: :accepted
+        else 
+            render json: { message: "Recipe is not in your book." }, status: unprocessable_entity
+        end
+    end 
 
    private 
    def set_book
-       @book = Book.find(params[:id])
+        @book = Book.find(params[:id])
    end
+
+   def set_recipe
+        @recipe = Recipe.find(params[:recipe_id])
+   end 
    
    def book_params 
        params.require(:book).permit(:title, :description)

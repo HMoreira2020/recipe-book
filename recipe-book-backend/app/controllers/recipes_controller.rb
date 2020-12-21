@@ -1,10 +1,17 @@
 class RecipesController < ApplicationController
     before_action :set_recipe, only: [:show, :update, :destroy]
+    before_action :set_recipe, only: [:index]
      # get '/recipes', to: 'recipe#index'
     def index
-        recipes = Recipe.all 
-        render json: RecipeSerializer.new(recipes).to_serialized_json
+        if params[:book_id]
+            recipes = @book.recipes
+            render json: RecipeSerializer.new(recipes).to_serialized_json
+        else 
+            recipes = Recipe.all 
+            render json: RecipeSerializer.new(recipes).to_serialized_json
+        end 
     end 
+
 
     def create 
         recipe = Recipe.new(recipe_params)
@@ -18,7 +25,6 @@ class RecipesController < ApplicationController
 
     def show 
         render json: RecipeSerializer.new(@recipe).to_serialized_json
-    
     end 
 
     def update
@@ -38,6 +44,10 @@ class RecipesController < ApplicationController
         @recipe = Recipe.find(params[:id])
     end
     
+    def set_book 
+        @book = Book.find(params[:book_id])
+    end 
+
     def recipe_params 
         params.require(:recipe).permit(:name, :image_url, :overview, :ingredients, :cook_time, :prep_time, :instructions, :book_id)
     end 
