@@ -18,5 +18,10 @@ class App extends React.Component {
 
 }
 
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     fetchBooks: (action) => dispatch(fetchBooks(action))
+//   }
+// }
 
 export default connect(null, {fetchBooks})(App);
