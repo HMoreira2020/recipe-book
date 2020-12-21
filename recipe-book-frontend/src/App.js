@@ -1,25 +1,22 @@
-// import { logo } from './logo'
 import React from 'react'
-import './App.css';
+import { connect } from 'react-redux'
+import { fetchBooks } from './actions/fetchBooks'
 
 class App extends React.Component {
 
   componentDidMount(){
-    fetch("http://localhost:3000/recipes")
-    .then(resp => resp.json())
-    .then(data => console.log(data))
+    this.props.fetchBooks({type: "FETCH_BOOKS"})
   }
   
   render() {
     return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
+    <div className="App"> 
        App 
-      </header>
     </div>
   );
-}
+  }
+
 }
 
-export default App;
+
+export default connect(null, {fetchBooks})(App);
