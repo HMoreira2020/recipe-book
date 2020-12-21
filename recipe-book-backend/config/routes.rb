@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :recipes
-  resources :books
+  resources :recipes, only: [:index, :show]
+  resources :books do 
+    resources :recipes
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

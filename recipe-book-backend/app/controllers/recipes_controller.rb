@@ -4,12 +4,13 @@ class RecipesController < ApplicationController
      # get '/recipes', to: 'recipe#index'
     def index
         if params[:book_id]
+            @book = Book.find(params[:book_id])
             recipes = @book.recipes
             render json: RecipeSerializer.new(recipes).to_serialized_json
         else 
             recipes = Recipe.all 
             render json: RecipeSerializer.new(recipes).to_serialized_json
-        end 
+        end
     end 
 
 
