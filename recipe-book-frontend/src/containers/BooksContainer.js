@@ -7,9 +7,14 @@
 import React from 'react'
 import BooksInput from '../components/BooksInput'
 import Books from '../components/Books'
+import { connect } from 'react-redux'
+import {fetchBooks} from '../actions/fetchBooks'
 
-export default class extends React.Component {
+class BooksContainer extends React.Component {
 
+    componentDidMount(){
+        fetchBooks()
+    }
 
     render(){
         return (
@@ -20,6 +25,12 @@ export default class extends React.Component {
             </div>
         )
     }
-
-
 }
+
+const mapStateToProps = state => {
+    return {
+        books: state.books
+    }
+}
+
+export default connect(mapStateToProps)(BooksContainer)
