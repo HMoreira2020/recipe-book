@@ -10,6 +10,7 @@ class BooksInput extends React.Component {
         title: "",
         description: ""
     }
+    //controlled form means values held in state 
 
     handleChange = event => {
         this.setState({
@@ -21,6 +22,7 @@ class BooksInput extends React.Component {
     handleOnSubmit = event => {
         event.preventDefault();
         this.props.addBook(this.state)
+        //onsubmit sends state/new book to addBook action creator
         this.setState({
             title: "",
             description: ""
@@ -31,7 +33,7 @@ class BooksInput extends React.Component {
     render(){
         return(
             <div className="Books-Input">
-                <h2>Create a Recipe Book!</h2>
+                <h4>Create a Recipe Book!</h4>
                 <form onSubmit={this.handleOnSubmit}>
                     <label>Recipe Book Title</label><br/>
                     <input 
