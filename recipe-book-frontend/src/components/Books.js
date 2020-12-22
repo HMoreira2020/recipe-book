@@ -5,7 +5,7 @@ const Books = (props) => {
 
     return (
         <div className="Books">
-            {/* Books */}
+            Books
         </div>
     )
 }

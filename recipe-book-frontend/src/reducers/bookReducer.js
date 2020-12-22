@@ -1,6 +1,9 @@
 export default function bookReducer(state = {books: []}, action) {
-
-      console.log("inside books reducer")
-      return state
-    
+    debugger
+    switch(action.type) {
+        case "FETCH_BOOKS":
+            return {books: action.payload}
+        default: 
+            return state 
+    } 
 }

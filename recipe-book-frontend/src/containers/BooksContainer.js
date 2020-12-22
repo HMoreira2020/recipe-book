@@ -13,7 +13,7 @@ import {fetchBooks} from '../actions/fetchBooks'
 class BooksContainer extends React.Component {
 
     componentDidMount(){
-        fetchBooks()
+        this.props.fetchBooks()
     }
 
     render(){
@@ -33,4 +33,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(BooksContainer)
+export default connect(mapStateToProps, {fetchBooks})(BooksContainer)
