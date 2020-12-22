@@ -1,11 +1,14 @@
 import React from 'react'
+import Book from './Book'
 
 //must pass in props when it's a functional component
 const Books = (props) => {
 
     return (
         <div className="Books">
-            Books
+           Recipe Books
+            {props.books.map(book => <Book key={book.id} title={book.title} description={book.description} />)}
+            {/* {props.books.map(book => <li key={book.id}>{book.title}</li>)} */}
         </div>
     )
 }
