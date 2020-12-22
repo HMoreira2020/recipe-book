@@ -5,8 +5,8 @@ const Book = (props) => {
     
     return (
         <div className="Book">
-            <h1>{props.title}</h1>
-            <h3>{props.description}</h3>
+            <h3>{props.title}</h3>
+            <p>{props.description}</p>
         </div>
     )
 }
