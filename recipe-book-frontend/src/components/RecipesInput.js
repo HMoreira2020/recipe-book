@@ -18,6 +18,7 @@ class RecipesInput extends React.Component {
     //controlled form means values held in state 
 
     handleChange = event => {
+        //add the brackets around event.target.name tells app to evaluate what's in the brackets first
         this.setState({
             [event.target.name]: event.target.value
         })
@@ -26,7 +27,7 @@ class RecipesInput extends React.Component {
 
     handleOnSubmit = event => {
         event.preventDefault();
-        this.props.addRecipe(this.state)
+        this.props.addRecipe(this.state, this.props.book.id)
         //onsubmit sends state/new book to addBook action creator
         this.setState({
             name: "",
@@ -41,6 +42,7 @@ class RecipesInput extends React.Component {
     
 
     render(){
+        
         return(
             <div className="Recipes-Input">
                 <h4>Add a New Recipe to Your Book</h4>
@@ -108,11 +110,6 @@ class RecipesInput extends React.Component {
     }
 }
 
-// const mapStateToProps = state => {
-//     return {
-//         books: state.books 
-//     }
-// }
 
 // const mapDispatchToProps = dispatch => {
 //     return {

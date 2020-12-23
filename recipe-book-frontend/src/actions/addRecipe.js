@@ -1,7 +1,7 @@
-export const addRecipe = (recipe) => {
+export const addRecipe = (recipe, bookId) => {
     //makes a fetch post request to backend where it creates a new book
     return (dispatch) => {
-        fetch("http://localhost:3000/recipes", {
+        fetch(`http://localhost:3000/books/${bookId}/recipes`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
@@ -10,7 +10,8 @@ export const addRecipe = (recipe) => {
             body: JSON.stringify(recipe)
         })
         .then(response => response.json())
-        .then(recipe => dispatch({type: "ADD_RECIPE", payload: recipe}))
+        .then(book => dispatch({type: "ADD_RECIPE", payload: book}))
+        //send the book to the reducer is easier than sending the recipe, finding book associated, etc. 
         //takes json response and dispatches it to reducer to update state with new book
         //right away adding to redux store without refetching the data here 
     };
