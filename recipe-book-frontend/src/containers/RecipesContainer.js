@@ -8,7 +8,7 @@ class RecipesContainer extends React.Component {
         return (
             <div className="Recipes-Container">
                 <RecipesInput />
-                <Recipes book={this.props.book}/>
+                <Recipes recipes={this.props.book && this.props.book.recipes}/>
             </div>
         )
     }
