@@ -1,6 +1,5 @@
 import React from 'react'
-import Book from './Book'
-// import {Route} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 //must pass in props when it's a functional component
 const Books = (props) => {
@@ -9,7 +8,9 @@ const Books = (props) => {
         <div className="Books">
            <h1>Recipe Books</h1>
             {props.books.map(book => 
-            <div key={book.id}><Book book={book} /></div>)}
+            <div key={book.id}>
+                <Link to={`/books/${book.id}`}>{book.title}</Link>
+            </div>)}
         </div>
     )
 }

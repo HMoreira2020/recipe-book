@@ -9,7 +9,7 @@ import BooksInput from '../components/BooksInput'
 import Books from '../components/Books'
 import Book from '../components/Book'
 import { connect } from 'react-redux'
-import {Route} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import {fetchBooks} from '../actions/fetchBooks'
 
 class BooksContainer extends React.Component {
@@ -21,6 +21,7 @@ class BooksContainer extends React.Component {
     render(){
         return (
             <div> 
+                {/* //switch returns first path that matches - solves id/new problem */}
                 <Route path='/books/new' component={BooksInput} />
                 <Route path='/books/:id' render={(routerProps)=> <Book {...routerProps} books={this.props.books}/>} />
                 <Route exact path='/books' render={(routerProps)=> <Books {...routerProps} books={this.props.books}/>} />
