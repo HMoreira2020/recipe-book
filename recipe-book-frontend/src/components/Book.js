@@ -1,5 +1,6 @@
 import React from 'react'
 // import { Redirect } from 'reac-router-dom'
+import RecipesContainer from '../containers/RecipesContainer'
 
 // //must pass in props when it's a functional component
 const Book = (props) => {
@@ -9,7 +10,10 @@ const Book = (props) => {
     
     return (
         <div className="Book">
+            <h2>
             {book ? book.title : "Nothing to see here..."}
+            </h2>
+            <RecipesContainer /> 
         </div>
     )
 }
