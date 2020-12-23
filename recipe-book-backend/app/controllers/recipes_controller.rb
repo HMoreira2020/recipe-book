@@ -16,6 +16,7 @@ class RecipesController < ApplicationController
 
     def create 
         recipe = @book.recipes.build(recipe_params)
+        @book.save
         if recipe.save  
             render json: BookSerializer.new(@book).to_serialized_json, status: :created 
         else
