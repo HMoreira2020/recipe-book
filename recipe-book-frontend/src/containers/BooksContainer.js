@@ -7,6 +7,7 @@
 import React from 'react'
 import BooksInput from '../components/BooksInput'
 import Books from '../components/Books'
+import Book from '../components/Book'
 import { connect } from 'react-redux'
 import {Route} from 'react-router-dom'
 import {fetchBooks} from '../actions/fetchBooks'
@@ -21,7 +22,8 @@ class BooksContainer extends React.Component {
         return (
             <div> 
                 <Route path='/books/new' component={BooksInput} />
-                <Route exact path='/books' render={()=> <Books books={this.props.books}/>} />
+                <Route path='/books/:id' render={(routerProps)=> <Book {...routerProps} books={this.props.books}/>} />
+                <Route exact path='/books' render={(routerProps)=> <Books {...routerProps} books={this.props.books}/>} />
             </div>
         )
     }
