@@ -13,7 +13,7 @@ const Book = (props) => {
             <h2>
             {book ? book.title : "Nothing to see here..."}
             </h2>
-            <RecipesContainer /> 
+            <RecipesContainer book={book} /> 
         </div>
     )
 }
