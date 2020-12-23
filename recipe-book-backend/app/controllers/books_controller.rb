@@ -1,11 +1,11 @@
 class BooksController < ApplicationController
     before_action :set_book, only: [:show, :update, :destroy]
-    
+    # working
    def index
        books = Book.all 
        render json: BookSerializer.new(books).to_serialized_json
    end 
-
+#    working
    def create 
        book = Book.new(book_params)
        if book.save  

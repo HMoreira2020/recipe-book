@@ -17,7 +17,7 @@ class RecipesController < ApplicationController
     def create 
         recipe = @book.recipes.build(recipe_params)
         if recipe.save  
-            render json: RecipeSerializer.new(recipe).to_serialized_json, status: :created 
+            render json: BookSerializer.new(@book).to_serialized_json, status: :created 
         else
             render json: { error: recipe.errors.full_messages }, status: :not_acceptable
         end
