@@ -6,7 +6,6 @@ class RecipesContainer extends React.Component {
     render() {
         return (
             <div className="Recipes-Container">
-                Recipes Container
                 <RecipesInput />
             </div>
         )

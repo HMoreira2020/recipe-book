@@ -30,7 +30,12 @@ class RecipesInput extends React.Component {
         //onsubmit sends state/new book to addBook action creator
         this.setState({
             name: "",
-            overview: ""
+            overview: "",
+            image_url: "",
+            ingredients: "",
+            cook_time: "",
+            prep_time: "", 
+            instructions: ""
         })
     }
     
@@ -48,6 +53,14 @@ class RecipesInput extends React.Component {
                         placeholder="Give you Recipe a name" 
                         value={this.state.name}>
                     </input><br/>
+                    <label>Image URL</label><br/>
+                    <input 
+                        onChange={this.handleChange} 
+                        type="text" 
+                        name="image_url" 
+                        placeholder="Add a photo" 
+                        value={this.state.image_url}>
+                    </input><br/>
                     <label>Description</label><br/>
                     <input 
                         onChange={this.handleChange} 
@@ -55,6 +68,38 @@ class RecipesInput extends React.Component {
                         name="overview" 
                         placeholder="Short description" 
                         value={this.state.overview}>
+                    </input><br/>
+                    <label>Ingredients</label><br/>
+                    <input 
+                        onChange={this.handleChange} 
+                        type="text"  
+                        name="ingredients" 
+                        placeholder="Ex) 2 Cups Chopped Carrots" 
+                        value={this.state.ingredients}>
+                    </input><br/>
+                    <label>Cook Time</label><br/>
+                    <input 
+                        onChange={this.handleChange} 
+                        type="text"  
+                        name="cook_time" 
+                        placeholder="Ex) 30 minutes"
+                        value={this.state.cook_time}>
+                    </input><br/>
+                    <label>Prep Time</label><br/>
+                    <input 
+                        onChange={this.handleChange} 
+                        type="text"  
+                        name="prep_time" 
+                        placeholder="Ex) 10 minutes"
+                        value={this.state.prep_time}>
+                    </input><br/>
+                    <label>Instructions</label><br/>
+                    <input 
+                        onChange={this.handleChange} 
+                        type="text"  
+                        name="instructions" 
+                        placeholder="Instructions for your recipe"
+                        value={this.state.instructions}>
                     </input><br/>
                     <input type="submit"></input>
                 </form>
