@@ -10,9 +10,7 @@ const Book = (props) => {
     
     return (
         <div className="Book">
-            <h2>
-            {book ? book.title : "Nothing to see here..."}
-            </h2>
+            <h2>{book ? book.title : "Nothing to see here..."}</h2>
             <RecipesContainer book={book} /> 
         </div>
     )
