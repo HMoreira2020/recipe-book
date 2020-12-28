@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
     before_action :set_recipe, only: [:show, :update, :destroy]
-    before_action :set_book, only: [:create]
+    before_action :set_book, only: [:create, :destroy]
      # get '/recipes', to: 'recipe#index'
     def index
         if params[:book_id]
@@ -38,7 +38,8 @@ class RecipesController < ApplicationController
     end 
 
     def destroy
-        @recipe.destroy 
+        @book.recipes.delete(@recipe) 
+        render json: BookSerializer.new(@book).to_serialized_json, status: :created 
     end 
 
     private 
