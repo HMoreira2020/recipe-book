@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
         end
     end 
 
-
+    #working
     def create 
         recipe = @book.recipes.build(recipe_params)
         @book.save
@@ -36,7 +36,8 @@ class RecipesController < ApplicationController
             render json: { error: @recipe.errors.full_messages }, status: :not_acceptable
         end
     end 
-
+    
+    #working 
     def destroy
         @book.recipes.delete(@recipe) 
         render json: BookSerializer.new(@book).to_serialized_json, status: :created 
