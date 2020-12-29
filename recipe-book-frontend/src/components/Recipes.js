@@ -15,8 +15,9 @@ const Recipes = (props) => {
     return (
         <div className="Recipes">
            <h3>Table of Contents</h3>
-           
+           <ol>
            {props.recipes && props.recipes.map(recipe => <li key={recipe.id}>{recipe.name} <button onClick={() => handleDelete(props.book.id, recipe.id)}>Delete</button></li>)}
+           </ol>
         </div>
     )
 }
