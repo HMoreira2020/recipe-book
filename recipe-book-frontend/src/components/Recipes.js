@@ -1,14 +1,13 @@
 import React from 'react'
-// import RecipesInput from './RecipesInput'
-// import Recipe from './Recipe'
 import {connect} from 'react-redux'
 import {deleteRecipe} from '../actions/deleteRecipe'
 import { Link } from 'react-router-dom'
-// import { Link } from 'react-router-dom'
+
 
 //must pass in props when it's a functional component
 const Recipes = (props) => {
     console.log(props)
+
     //have to define this method with a const keyword bc it's in a functional component 
     const handleDelete = (bookId, recipeId) => {
         props.deleteRecipe(bookId, recipeId)
@@ -21,6 +20,10 @@ const Recipes = (props) => {
 
             
            <h3>Table of Contents</h3>
+           {/* //link to new recipe page */}
+           <div className="new-recipes-link">
+                <Link to={`/books/${props.book.id}/recipes/new`}>Add a New Recipe</Link>
+            </div>
            {/* iterate through the books recipes and display a link to the recipe */}
            {props.recipes && props.recipes.map(recipe => 
            <li key={recipe.id}>
@@ -29,10 +32,7 @@ const Recipes = (props) => {
             </li>)
             }
 
-            {/* //link to new recipe page */}
-            <div className="new-recipes-link">
-                    <Link to={`/books/${props.book.id}/recipes/new`}>Add a New Recipe</Link>
-            </div>
+
 
         </div>
     )

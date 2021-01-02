@@ -14,6 +14,7 @@ class RecipesInput extends React.Component {
         cook_time: "",
         prep_time: "", 
         instructions: ""
+        
     }
     //controlled form means values held in state 
 

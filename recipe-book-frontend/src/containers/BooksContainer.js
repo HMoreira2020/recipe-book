@@ -20,7 +20,7 @@ class BooksContainer extends React.Component {
 
     render(){
         return (
-            <div> 
+            <div className="Books-Container"> 
                 <Switch>
                 {/* //switch returns first path that matches - solves id/new problem */}
                     <Route path='/books/new' component={BooksInput} />
