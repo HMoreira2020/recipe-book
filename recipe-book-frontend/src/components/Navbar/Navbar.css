@@ -135,7 +135,7 @@
         transition: 250ms;
     }
 
-    Button {
+    .btn-signup {
         display: none;
     }
 }

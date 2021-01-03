@@ -1,7 +1,7 @@
 import React from 'react'
 import { MenuItems } from './MenuItems'
 import './Navbar.css'
-import { Button } from '../Button'
+// import { Button } from '../Button'
 
 class Navbar extends React.Component {
     state = {
@@ -31,7 +31,7 @@ class Navbar extends React.Component {
                     })}
                     
                 </ul>
-                <Button>Sign Up</Button>
+                {/* <Button>Sign Up</Button> */}
             </nav>
         )
     }

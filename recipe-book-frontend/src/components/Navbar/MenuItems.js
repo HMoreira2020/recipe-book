@@ -16,7 +16,7 @@ export const MenuItems = [
     },
     {
         title: "Create A Recipe Book", 
-        url: "#",
+        url: "/books/new",
         cName: 'nav-links'
     },
     {

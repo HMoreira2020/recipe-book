@@ -32,8 +32,6 @@ const Recipes = (props) => {
             </li>)
             }
 
-
-
         </div>
     )
 }
