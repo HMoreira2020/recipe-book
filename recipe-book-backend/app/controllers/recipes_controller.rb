@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
     before_action :set_recipe, only: [:show, :update, :destroy]
-    before_action :set_book, only: [:create, :destroy]
+    before_action :set_book, only: [:create, :update, :destroy]
      # get '/recipes', to: 'recipe#index'
     def index
         if params[:book_id]
@@ -30,11 +30,13 @@ class RecipesController < ApplicationController
     end 
 
     def update
-        if @recipe.update(recipe_params) 
-            render json: RecipeSerializer.new(@recipe).to_serialized_json, status: :updated
-        else
-            render json: { error: @recipe.errors.full_messages }, status: :not_acceptable
-        end
+        binding.pry
+        # if @recipe.update(recipe_params) 
+            
+        #     render json: RecipeSerializer.new(@recipe).to_serialized_json, status: :updated
+        # else
+        #     render json: { error: @recipe.errors.full_messages }, status: :not_acceptable
+        # end
     end 
     
     #working 
@@ -42,6 +44,8 @@ class RecipesController < ApplicationController
         @book.recipes.delete(@recipe) 
         render json: BookSerializer.new(@book).to_serialized_json, status: :created 
     end 
+
+
 
     private 
     def set_recipe
