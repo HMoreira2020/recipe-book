@@ -1,6 +1,6 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {deleteRecipe} from '../actions/deleteRecipe'
+// import {connect} from 'react-redux'
+// import {deleteRecipe} from '../actions/deleteRecipe'
 import { Link } from 'react-router-dom'
 
 
@@ -9,9 +9,9 @@ const Recipes = (props) => {
     console.log(props)
 
     //have to define this method with a const keyword bc it's in a functional component 
-    const handleDelete = (bookId, recipeId) => {
-        props.deleteRecipe(bookId, recipeId)
-    }
+    // const handleDelete = (bookId, recipeId) => {
+    //     props.deleteRecipe(bookId, recipeId)
+    // }
     //first time this runs or when refreshed the recipes are undefined because store and state have not been updated 
     //any time we refresh the BooksContainer will remount and in the componentDidMount the books are fetched and store updated
     return (
@@ -28,7 +28,7 @@ const Recipes = (props) => {
            {props.recipes && props.recipes.map(recipe => 
            <li key={recipe.id}>
                <Link to={`/books/${props.book.id}/recipes/${recipe.id}`}>{recipe.name}</Link>
-               <button onClick={() => handleDelete(props.book.id, recipe.id)}>Delete</button>
+               {/* <button onClick={() => handleDelete(props.book.id, recipe.id)}>Delete</button> */}
             </li>)
             }
 
@@ -36,6 +36,7 @@ const Recipes = (props) => {
     )
 }
 
-export default connect(null, {deleteRecipe})(Recipes)
+// export default connect(null, {deleteRecipe})(Recipes)
+export default Recipes
 
 

@@ -6,18 +6,17 @@ import {Route, Switch} from 'react-router-dom'
 
 class RecipesContainer extends React.Component {
     //is passed the book info from the book component
-    state = {
-        allowAccess: false
-    }
+   
     
     render() {
+        console.log(this.props)
         return (
             <div className="Recipes-Container">
              <Switch>
                 {/* //switch returns first path that matches - solves id/new problem */}
                 {/* render is for when you want to customize what you want people to see */}
                     <Route path='/books/:bookId/recipes/new' render={(routerProps)=> <RecipesInput {...routerProps} book={this.props.book}/>}  />
-                    <Route path='/books/:bookId/recipes/:id' render={(routerProps)=> <Recipe {...routerProps} recipes={this.props.book.recipes}/>} />
+                    <Route path='/books/:bookId/recipes/:id' render={(routerProps)=> <Recipe {...routerProps} book={this.props.book} recipes={this.props.book.recipes}/>} />
                     
                 </Switch>
 

@@ -26,6 +26,17 @@ export default function bookReducer(state = {books: []}, action) {
                 }
             })
             return {...state, books: booksTwo}
+        case "EDIT_RECIPE":
+            debugger
+                 //if the book id matches with book sent from backend, replace that book in the store
+            // let booksThree = state.books.map(book => {
+            //     if (book.id === action.payload.id) {
+            //         return action.payload
+            //     } else {
+            //             return book
+            //     }
+            // })
+            // return {...state, books: booksThree}
         default: 
             return state 
     } 
