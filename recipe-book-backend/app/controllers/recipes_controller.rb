@@ -31,12 +31,12 @@ class RecipesController < ApplicationController
 
     def update
         binding.pry
-        # if @recipe.update(recipe_params) 
-            
-        #     render json: RecipeSerializer.new(@recipe).to_serialized_json, status: :updated
-        # else
-        #     render json: { error: @recipe.errors.full_messages }, status: :not_acceptable
-        # end
+        if @recipe.update(recipe_params) 
+            @book.save
+            render json: BookSerializer.new(@book).to_serialized_json, status: :updated
+        else
+            render json: { error: @recipe.errors.full_messages }, status: :not_acceptable
+        end
     end 
     
     #working 
