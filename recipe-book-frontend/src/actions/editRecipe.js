@@ -1,5 +1,6 @@
-export const editRecipe = (recipe) => {
+export const editRecipe = (recipe, recipeId) => {
     return (dispatch) => {
+        debugger
         return fetch(`http://localhost:3000/recipes/${recipeId}`, {
             headers: {
                 'Content-Type': 'application/json',

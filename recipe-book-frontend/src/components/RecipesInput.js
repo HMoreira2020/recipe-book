@@ -3,10 +3,142 @@ import React from 'react'
 import { connect } from 'react-redux'
 //imports must be in curly braces if you don't "export default"
 import { addRecipe } from '../actions/addRecipe'
+import { editRecipe } from '../actions/editRecipe'
+import PropTypes from 'prop-types';
 
 
 class RecipesInput extends React.Component {
-    state = {
+   
+
+    handleOnSubmit = event => {
+        event.preventDefault();
+        const {editMode, recipe} = this.props;
+        const name = this.nameRef.value
+        const overview = this.descriptionRef.value
+        const ingredients = this.ingredientsRef.value
+        const cook_time = this.cookTimeRef.value
+        const prep_time = this.prepTimeRef.value
+        const instructions = this.instructionsRef.value
+        const image_url = this.imageRef.value
+        if (editMode) {
+            const recipeData = {
+                name,
+                overview,
+                image_url,
+                ingredients, 
+                cook_time, 
+                prep_time, 
+                instructions   
+            }
+            this.props.editRecipe(recipeData, recipe.id)
+        } else {
+            const newRecipe = {
+                name,
+                overview,
+                image_url,
+                ingredients, 
+                cook_time, 
+                prep_time, 
+                instructions, 
+                editing: false
+            }
+            this.props.addRecipe(newRecipe, this.props.book.id)
+        }
+    }
+
+   
+    
+
+    render(){
+        console.log("recipes input props:", this.props)
+        const {editMode} = this.props
+        console.log("edit mode", editMode)
+        const recipe = this.props.editMode ? this.props.book.recipes.find(recipe => recipe.id === parseInt(this.props.match.params.id)) : this.props.recipe
+        console.log("recipe", this.props.recipe)
+        const pageTitle = editMode ? 'Edit Recipe' : 'Create Recipe';
+        const buttonTitle = editMode ? 'Update' : 'Add';
+        return(
+            <div className="Recipes-Input">
+                <h4>{pageTitle}</h4>
+                <form onSubmit={this.handleOnSubmit}>
+                    <label>Recipe Name</label><br/>
+                    <input 
+                        required
+                        type="text" 
+                        ref={input => this.nameRef = input}
+                        name="name" 
+                        placeholder="Give you Recipe a name" 
+                        defaultValue={recipe.name}>
+                    </input><br/>
+                    <label>Image URL</label><br/>
+                    <input 
+                        required
+                        type="text" 
+                        ref={input => this.imageRef = input}
+                        name="image_url" 
+                        placeholder="Add a photo" 
+                        defaultValue={recipe.image_url}>
+                    </input><br/>
+                    <label>Description</label><br/>
+                    <input 
+                        required
+                        type="text"  
+                        ref={input => this.descriptionRef = input}
+                        name="overview" 
+                        placeholder="Short description" 
+                        defaultValue={recipe.overview}>
+                    </input><br/>
+                    <label>Ingredients</label><br/>
+                    <input 
+                        required
+                        type="text"  
+                        ref={input => this.ingredientsRef = input}
+                        name="ingredients" 
+                        placeholder="Ex) 2 Cups Chopped Carrots" 
+                        defaultValue={recipe.ingredients}>
+                    </input><br/>
+                    <label>Cook Time</label><br/>
+                    <input 
+                        required
+                        type="text"  
+                        ref={input => this.cookTimeRef = input}
+                        name="cook_time" 
+                        placeholder="Ex) 30 minutes"
+                        defaultValue={recipe.cook_time}>
+                    </input><br/>
+                    <label>Prep Time</label><br/>
+                    <input 
+                        required
+                        type="text"
+                        ref={input => this.prepTimeRef = input}  
+                        name="prep_time" 
+                        placeholder="Ex) 10 minutes"
+                        defaultValue={recipe.prep_time}>
+                    </input><br/>
+                    <label>Instructions</label><br/>
+                    <textarea
+                        required
+                        type="text" 
+                        ref={input => this.instructionsRef = input} 
+                        name="instructions" 
+                        placeholder="Instructions for your recipe"
+                        defaultValue={recipe.instructions}>
+                    </textarea><br/>
+                    <input type="submit" value={buttonTitle}></input>
+                </form>
+            </div>
+        )
+    }
+}
+
+RecipesInput.propTypes = {
+    editMode: PropTypes.bool,
+    recipe: PropTypes.object
+}
+
+RecipesInput.defaultProps = {
+    editMode: false,    // false: Create mode, true: Edit mode
+    recipe: {
         name: "",
         overview: "",
         image_url: "",
@@ -14,109 +146,14 @@ class RecipesInput extends React.Component {
         cook_time: "",
         prep_time: "", 
         instructions: ""
-        
-    }
-    //controlled form means values held in state 
-
-    handleChange = event => {
-        //add the brackets around event.target.name tells app to evaluate what's in the brackets first
-        this.setState({
-            [event.target.name]: event.target.value
-        })
-     }
-
-
-    handleOnSubmit = event => {
-        event.preventDefault();
-        this.props.addRecipe(this.state, this.props.book.id)
-        //onsubmit sends state/new book to addBook action creator
-        this.setState({
-            name: "",
-            overview: "",
-            image_url: "",
-            ingredients: "",
-            cook_time: "",
-            prep_time: "", 
-            instructions: ""
-        })
-    }
-    
-
-    render(){
-        
-        return(
-            <div className="Recipes-Input">
-                <h4>Add a New Recipe to Your Book</h4>
-                <form onSubmit={this.handleOnSubmit}>
-                    <label>Recipe Name</label><br/>
-                    <input 
-                        onChange={this.handleChange} 
-                        type="text" 
-                        name="name" 
-                        placeholder="Give you Recipe a name" 
-                        value={this.state.name}>
-                    </input><br/>
-                    <label>Image URL</label><br/>
-                    <input 
-                        onChange={this.handleChange} 
-                        type="text" 
-                        name="image_url" 
-                        placeholder="Add a photo" 
-                        value={this.state.image_url}>
-                    </input><br/>
-                    <label>Description</label><br/>
-                    <input 
-                        onChange={this.handleChange} 
-                        type="text"  
-                        name="overview" 
-                        placeholder="Short description" 
-                        value={this.state.overview}>
-                    </input><br/>
-                    <label>Ingredients</label><br/>
-                    <input 
-                        onChange={this.handleChange} 
-                        type="text"  
-                        name="ingredients" 
-                        placeholder="Ex) 2 Cups Chopped Carrots" 
-                        value={this.state.ingredients}>
-                    </input><br/>
-                    <label>Cook Time</label><br/>
-                    <input 
-                        onChange={this.handleChange} 
-                        type="text"  
-                        name="cook_time" 
-                        placeholder="Ex) 30 minutes"
-                        value={this.state.cook_time}>
-                    </input><br/>
-                    <label>Prep Time</label><br/>
-                    <input 
-                        onChange={this.handleChange} 
-                        type="text"  
-                        name="prep_time" 
-                        placeholder="Ex) 10 minutes"
-                        value={this.state.prep_time}>
-                    </input><br/>
-                    <label>Instructions</label><br/>
-                    <input 
-                        onChange={this.handleChange} 
-                        type="text"  
-                        name="instructions" 
-                        placeholder="Instructions for your recipe"
-                        value={this.state.instructions}>
-                    </input><br/>
-                    <input type="submit"></input>
-                </form>
-            </div>
-        )
-    }
+    }    // Pass defined Post object in create mode in order not to get undefined objects in 'defaultValue's of inputs.
 }
-
 
 // const mapDispatchToProps = dispatch => {
 //     return {
-//         addBook: (book) => dispatch(addBook(book))
+//         addRecipe: (recipe) => dispatch(addRecipe(recipe))
 //     }
 // }
 
 
-export default connect(null, {addRecipe})(RecipesInput)
+export default connect(null, {addRecipe, editRecipe})(RecipesInput)
