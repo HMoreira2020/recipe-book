@@ -1,7 +1,6 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { fetchBooks } from './actions/fetchBooks'
 import BooksContainer from './containers/BooksContainer'
+import RecipesList from './components/RecipesList'
 import HomePage from './components/Homepage'
 import { Route } from "react-router-dom";
 import Navbar from './components/Navbar/Navbar'
@@ -15,11 +14,10 @@ class App extends React.Component {
     return (
       <div className="App"> 
       <Navbar /> 
-          {/* <Link to="/home">Home</Link>
-          <Link to="/books">Books</Link> */}
         <div>
           <Route path='/home' component={HomePage} />
           <Route path='/books' component={BooksContainer} />
+          <Route exact path='/recipes' component={RecipesList} />
         </div>
 
       </div>
@@ -28,10 +26,4 @@ class App extends React.Component {
 
 }
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     fetchBooks: (action) => dispatch(fetchBooks(action))
-//   }
-// }
-
-export default connect(null, {fetchBooks})(App);
+export default App;

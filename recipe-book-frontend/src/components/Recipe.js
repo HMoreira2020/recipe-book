@@ -21,6 +21,7 @@ const Recipe = (props) => {
     //grab specific book by id props.match from current path - '/books/1'
     //have access to props.match because I passed routerProps in to the Router
     let recipe = props.recipes.find(recipe => recipe.id === parseInt(props.match.params.id))
+    
     console.log("In recipe container, recipe:", recipe)
     console.log("book Id", props.book.id)
   
@@ -29,6 +30,7 @@ const Recipe = (props) => {
             <h2>{recipe ? recipe.name : "Nothing to see here..."}</h2>
             <button onClick={() => handleDelete(props.book.id, recipe.id)}>Delete</button>
             <Link to={`/books/${props.book.id}/recipes/${recipe.id}/edit`}>Edit</Link>
+            {/* if recipe, render link otherwise render redirect component with desired url  */}
         </div>
     )
 }

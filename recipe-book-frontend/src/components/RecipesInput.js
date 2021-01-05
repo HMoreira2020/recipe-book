@@ -11,7 +11,6 @@ class RecipesInput extends React.Component {
    
 
     handleOnSubmit = event => {
-        debugger
         event.preventDefault();
         const recipeId = parseInt(event.target.id)
         const {editMode} = this.props;
@@ -32,7 +31,7 @@ class RecipesInput extends React.Component {
                 prep_time, 
                 instructions   
             }
-            this.props.editRecipe(recipeData, recipeId)
+            this.props.editRecipe(recipeData, recipeId, this.props.book.id)
         } else {
             const newRecipe = {
                 name,
@@ -52,6 +51,7 @@ class RecipesInput extends React.Component {
     
 
     render(){
+        console.log(this.props)
         const {editMode} = this.props
         const recipe = this.props.editMode ? this.props.book.recipes.find(recipe => recipe.id === parseInt(this.props.match.params.id)) : this.props.recipe
         const pageTitle = editMode ? 'Edit Recipe' : 'Create Recipe';

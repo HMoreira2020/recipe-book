@@ -18,9 +18,10 @@ const Recipes = (props) => {
             </div>
            {/* iterate through the books recipes and display a link to the recipe */}
            {props.recipes && props.recipes.map(recipe => 
-                <li key={recipe.id}>
-                    <Link to={`/books/${props.book.id}/recipes/${recipe.id}`}>{recipe.name}</Link>
-                </li>)
+            <li key={recipe.id}>
+                <Link to={`/books/${props.book.id}/recipes/${recipe.id}`}>{recipe.name}</Link>
+            </li>
+                )
             }
 
         </div>

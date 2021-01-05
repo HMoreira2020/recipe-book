@@ -1,7 +1,7 @@
-export const editRecipe = (recipe, recipeId) => {
+export const editRecipe = (recipe, recipeId, bookId) => {
+    debugger
     return (dispatch) => {
-        debugger
-        return fetch(`http://localhost:3000/recipes/${recipeId}`, {
+        return fetch(`http://localhost:3000/books/${bookId}/recipes/${recipeId}`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
@@ -10,11 +10,11 @@ export const editRecipe = (recipe, recipeId) => {
             body: JSON.stringify(recipe)
         })
         .then(response => response.json())
-        .then(recipe => {
-            if (recipe.error) {
-                alert(recipe.error)
+        .then(book => {
+            if (book.error) {
+                alert(book.error)
             } else {
-                dispatch({type: "EDIT_RECIPE", payload: recipe})
+                dispatch({type: "EDIT_RECIPE", payload: book})
             }
         })
     }
