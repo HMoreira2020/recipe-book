@@ -11,9 +11,6 @@ const Books = (props) => {
             <div key={book.id}>
                 <Link to={`/books/${book.id}`}>{book.title}</Link>
             </div>)}
-            <div className="new-books-link">
-                <Link to={"/books/new"}>Create a New Recipe Book</Link>
-            </div>
         </div>
     )
 }

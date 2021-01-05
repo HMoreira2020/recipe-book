@@ -11,8 +11,10 @@ class RecipesInput extends React.Component {
    
 
     handleOnSubmit = event => {
+        debugger
         event.preventDefault();
-        const {editMode, recipe} = this.props;
+        const recipeId = parseInt(event.target.id)
+        const {editMode} = this.props;
         const name = this.nameRef.value
         const overview = this.descriptionRef.value
         const ingredients = this.ingredientsRef.value
@@ -30,7 +32,7 @@ class RecipesInput extends React.Component {
                 prep_time, 
                 instructions   
             }
-            this.props.editRecipe(recipeData, recipe.id)
+            this.props.editRecipe(recipeData, recipeId)
         } else {
             const newRecipe = {
                 name,
@@ -50,17 +52,14 @@ class RecipesInput extends React.Component {
     
 
     render(){
-        console.log("recipes input props:", this.props)
         const {editMode} = this.props
-        console.log("edit mode", editMode)
         const recipe = this.props.editMode ? this.props.book.recipes.find(recipe => recipe.id === parseInt(this.props.match.params.id)) : this.props.recipe
-        console.log("recipe", this.props.recipe)
         const pageTitle = editMode ? 'Edit Recipe' : 'Create Recipe';
         const buttonTitle = editMode ? 'Update' : 'Add';
         return(
             <div className="Recipes-Input">
                 <h4>{pageTitle}</h4>
-                <form onSubmit={this.handleOnSubmit}>
+                <form id={recipe.id} onSubmit={this.handleOnSubmit}>
                     <label>Recipe Name</label><br/>
                     <input 
                         required
@@ -139,6 +138,7 @@ RecipesInput.propTypes = {
 RecipesInput.defaultProps = {
     editMode: false,    // false: Create mode, true: Edit mode
     recipe: {
+        id: "",
         name: "",
         overview: "",
         image_url: "",
@@ -148,12 +148,6 @@ RecipesInput.defaultProps = {
         instructions: ""
     }    // Pass defined Post object in create mode in order not to get undefined objects in 'defaultValue's of inputs.
 }
-
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         addRecipe: (recipe) => dispatch(addRecipe(recipe))
-//     }
-// }
 
 
 export default connect(null, {addRecipe, editRecipe})(RecipesInput)

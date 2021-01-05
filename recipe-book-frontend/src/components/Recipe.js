@@ -6,11 +6,15 @@ import { Link } from 'react-router-dom'
 
 // //must pass in props when it's a functional component
 const Recipe = (props) => {
-    debugger
    console.log("recipe props:", props)
+
+   
+
     const handleDelete = (bookId, recipeId) => {
         props.deleteRecipe(bookId, recipeId)
     }
+
+    
 
     // parseInt(props.match.params.bookId) will give me the bookId "1" from the url 
     //so should I fetch the info i need to avoid losing everything on refresh

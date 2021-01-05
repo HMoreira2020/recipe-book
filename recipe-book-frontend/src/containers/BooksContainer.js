@@ -12,17 +12,12 @@ import Book from '../components/Book'
 import { connect } from 'react-redux'
 import {Route, Switch} from 'react-router-dom'
 import {fetchBooks} from '../actions/fetchBooks'
-// import {fetchRecipes} from '../actions/fetchRecipes'
 
 class BooksContainer extends React.Component {
 
     componentDidMount(){
         this.props.fetchBooks()
     }
-
-    // componentDidMount() {
-    //     this.props.fetchRecipes()
-    // }
 
     render(){
         return (
