@@ -1,7 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {deleteRecipe} from '../actions/deleteRecipe'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
+
 
 
 // //must pass in props when it's a functional component
@@ -12,6 +13,7 @@ const Recipe = (props) => {
 
     const handleDelete = (bookId, recipeId) => {
         props.deleteRecipe(bookId, recipeId)
+    props.history.push(`/books/${bookId}/recipes`);
     }
 
     
@@ -35,6 +37,6 @@ const Recipe = (props) => {
     )
 }
 
-export default connect(null, {deleteRecipe})(Recipe)
+export default withRouter(connect(null, {deleteRecipe})(Recipe))
 
 
