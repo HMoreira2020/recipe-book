@@ -4,11 +4,9 @@ import {deleteRecipe} from '../actions/deleteRecipe'
 import { Link, withRouter } from 'react-router-dom'
 
 
-
-// //must pass in props when it's a functional component
 const Recipe = (props) => {
-   const {match, recipes} = props
-   console.log("recipe props:", match, recipes)
+   const {match, recipes, history, book} = props
+   console.log("recipe props:", match, recipes, history)
     
    let recipe = recipes.find(recipe => recipe.id === parseInt(match.params.id))
    
@@ -19,38 +17,36 @@ const Recipe = (props) => {
           </section>
         )
       }
-    console.log("In recipe.js", recipe)
-   
 
     const handleDelete = (bookId, recipeId) => {
         props.deleteRecipe(bookId, recipeId)
-        props.history.push(`/books/${bookId}/recipes`);
+        history.push(`/books/${bookId}`);
     }
 
     // parseInt(props.match.params.bookId) will give me the bookId "1" from the url 
     //so should I fetch the info i need to avoid losing everything on refresh
-    //grab specific book by id props.match from current path - '/books/1'
-    //have access to props.match because I passed routerProps in to the Router
-    
-  
     return (
         <div className="Recipe">
            <h2 className="Recipe-Name">{recipe.name}</h2>
            <sub className="overview">{recipe.overview}</sub>
-           Cook Time: {recipe.prep_time} || Prep Time: {recipe.cook_time}
+           <div className="recipe-time">Cook Time: {recipe.prep_time} || Prep Time: {recipe.cook_time}</div>
            
-          {props.book ? <p><button onClick={() => handleDelete(props.book.id, recipe.id)}>Delete</button>
-           <Link to={`/books/${props.book.id}/recipes/${recipe.id}/edit`} className="btn-edit">Edit</Link></p> : 
+          {props.book ? <p className="recipe-controls"><button onClick={() => handleDelete(book.id, recipe.id)}>Remove</button>
+           <button><Link to={`/books/${props.book.id}/recipes/${recipe.id}/edit`} className="btn-edit">Edit</Link></button></p> : 
            null
           }
            <div className="recipe-image"><img src={recipe.image_url} alt={recipe.name}></img></div>
-           <div className="recipe-ingredients">Ingredients: {recipe.ingredients.split(',').map(i => <li>{i}</li>)}</div>
+           <div className="recipe-ingredients">
+              <h3>Ingredients:</h3>
+              {recipe.ingredients.split(',').map(i => <li>{i}</li>)}
+           </div>
            <div className="Instructions">
-              Step 1: {recipe.instructions_1}
-              Step 2: {recipe.instructions_2}
-              Step 3: {recipe.instructions_3}
-              Step 4: {recipe.instructions_4}
-              Step 5: {recipe.instructions_5}
+             <h3>Instructions</h3>
+              <li>Step 1: {recipe.instructions_1}</li>
+              <li>Step 2: {recipe.instructions_2}</li>
+              <li>Step 3: {recipe.instructions_3}</li>
+              <li>Step 4: {recipe.instructions_4}</li>
+              <li>Step 5: {recipe.instructions_5}</li>
            </div>
            
         </div>  

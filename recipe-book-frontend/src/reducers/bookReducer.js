@@ -3,11 +3,14 @@ export default function bookReducer(state = {books: [], recipes: []}, action) {
         case "FETCH_BOOKS":
             return {books: action.payload}
         case "FETCH_RECIPES":
-            debugger
             return {recipes: action.payload}
         case "ADD_BOOK":
             //return what's in the state, books is all the books already in the array plus the book we submitted
             return {...state, books: [...state.books, action.payload]}
+        case "DELETE_BOOK":
+                //if the book id matches with book sent from backend, replace that book in the store
+            let newBooks = state.books.filter(book => book.id !== action.payload.id)
+            return {...state, books: newBooks}
         case "ADD_RECIPE":
             //if the book id matches with book sent from backend, replace that book in the store
             let books = state.books.map(book => {
@@ -19,18 +22,16 @@ export default function bookReducer(state = {books: [], recipes: []}, action) {
             })
             return {...state, books: books}
         case "DELETE_RECIPE":
-            debugger
                 //if the book id matches with book sent from backend, replace that book in the store
             let booksTwo = state.books.map(book => {
                 if (book.id === action.payload.id) {
                     return action.payload
                 } else {
-                        return book
+                    return book
                 }
             })
             return {...state, books: booksTwo}
         case "EDIT_RECIPE":
-            debugger
             let booksThree = state.books.map(book => {
                 if (book.id === action.payload.id) {
                     return action.payload

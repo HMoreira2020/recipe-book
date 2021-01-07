@@ -3,6 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 //imports must be in curly braces if you don't "export default"
 import { addBook } from '../actions/addBook'
+import { withRouter } from 'react-router-dom'
 
 
 class BooksInput extends React.Component {
@@ -27,6 +28,7 @@ class BooksInput extends React.Component {
             title: "",
             description: ""
         })
+        this.props.history.push('/books')
     }
     
 
@@ -71,4 +73,4 @@ class BooksInput extends React.Component {
 // }
 
 
-export default connect(null, {addBook})(BooksInput)
+export default withRouter(connect(null, {addBook})(BooksInput))

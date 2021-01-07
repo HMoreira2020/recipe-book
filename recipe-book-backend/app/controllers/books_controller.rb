@@ -30,12 +30,8 @@ class BooksController < ApplicationController
    end 
 
    def destroy
-        if @book.recipes.include?(@recipe) 
-            @book.recipes.delete(@recipe)
-            render json: BookSerializer.new(@book).to_serialized_json, status: :accepted
-        else 
-            render json: { message: "Recipe is not in your book." }, status: unprocessable_entity
-        end
+        Book.delete(@book)
+        render json: BookSerializer.new(@book).to_serialized_json, status: :accepted
     end 
 
    private 
