@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { addRecipe } from '../actions/addRecipe'
 import { editRecipe } from '../actions/editRecipe'
 import PropTypes from 'prop-types';
+import StyledForm from "../styles"
 
 
 class RecipesInput extends React.Component {
@@ -71,6 +72,7 @@ class RecipesInput extends React.Component {
         return(
             <div className="Recipes-Input">
                 <h4>{pageTitle}</h4>
+                <StyledForm>
                 <form id={recipe.id} onSubmit={this.handleOnSubmit}>
                     <label>Recipe Name</label><br/>
                     <input 
@@ -169,6 +171,7 @@ class RecipesInput extends React.Component {
                     </textarea><br/>
                     <input type="submit" value={buttonTitle}></input>
                 </form>
+                </StyledForm>
             </div>
         )
     }

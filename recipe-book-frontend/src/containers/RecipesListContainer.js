@@ -2,9 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {fetchRecipes} from '../actions/fetchRecipes'
 import {Route, Link} from 'react-router-dom'
-import Recipe from './Recipe'
+import Recipe from '../components/Recipe'
 
-class RecipesList extends React.Component {
+class RecipesListContainer extends React.Component {
     
     componentDidMount(){
         this.props.fetchRecipes()
@@ -39,4 +39,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {fetchRecipes})(RecipesList)
+export default connect(mapStateToProps, {fetchRecipes})(RecipesListContainer)

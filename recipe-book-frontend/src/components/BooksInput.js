@@ -6,6 +6,7 @@ import { addBook } from '../actions/addBook'
 import { withRouter } from 'react-router-dom'
 import { editBook } from '../actions/editBook'
 import PropTypes from 'prop-types';
+import StyledForm from "../styles"
 
 
 class BooksInput extends React.Component {
@@ -44,6 +45,7 @@ class BooksInput extends React.Component {
         return(
             <div className="Books-Input">
                 <h4>{pageTitle}</h4>
+                <StyledForm>
                 <form id={book.id} onSubmit={this.handleOnSubmit}>
                     <label>Recipe Book Title</label><br/>
                     <input 
@@ -65,6 +67,7 @@ class BooksInput extends React.Component {
                     </input><br/>
                     <input type="submit" value={buttonTitle}></input>
                 </form>
+                </StyledForm>
             </div>
         )
     }

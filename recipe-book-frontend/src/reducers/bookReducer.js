@@ -8,7 +8,6 @@ export default function bookReducer(state = {books: [], recipes: []}, action) {
             //return what's in the state, books is all the books already in the array plus the book we submitted
             return {...state, books: [...state.books, action.payload]}
         case "EDIT_BOOK":
-            debugger
             let editedBooks = state.books.map(book => {
                 if (book.id === action.payload.id) {
                     return action.payload
@@ -18,7 +17,7 @@ export default function bookReducer(state = {books: [], recipes: []}, action) {
             })
             return {...state, books: editedBooks}
         case "DELETE_BOOK":
-                //if the book id matches with book sent from backend, replace that book in the store
+                //if the book id does not match with book sent from backend, keep it in the store
             let newBooks = state.books.filter(book => book.id !== action.payload.id)
             return {...state, books: newBooks}
         case "ADD_RECIPE":

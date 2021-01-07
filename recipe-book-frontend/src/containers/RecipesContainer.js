@@ -13,7 +13,7 @@ class RecipesContainer extends React.Component {
         console.log(this.props)
         return (
             <div className="Recipes-Container">
-             <Switch>
+             <Switch> 
                     <Route path='/books/:bookId/recipes/:id/edit' render={(routerProps)=> <RecipesInput {...routerProps} book={this.props.book} editMode={true} />}  /> 
                     <Route path='/books/:bookId/recipes/new' render={(routerProps)=> <RecipesInput {...routerProps} book={this.props.book} editMode={false} />}  />
                     <Route path='/books/:bookId/recipes/:id' render={(routerProps)=> <Recipe {...routerProps} book={this.props.book} recipes={this.props.book.recipes}/>} /> 

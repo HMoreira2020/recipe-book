@@ -1,6 +1,6 @@
 import React from 'react'
 import BooksContainer from './containers/BooksContainer'
-import RecipesList from './components/RecipesList'
+import RecipesListContainer from './containers/RecipesListContainer'
 import HomePage from './components/Homepage'
 import { Route, Switch, Redirect } from "react-router-dom";
 import Navbar from './components/Navbar/Navbar'
@@ -21,7 +21,7 @@ class App extends React.Component {
             <Redirect exact from="/" to="/home" />
             <Route path='/home' component={HomePage} />
             <Route path='/books' component={BooksContainer} />
-            <Route path='/recipes-list' component={RecipesList} />
+            <Route path='/recipes-list' component={RecipesListContainer} />
             
 
           </Switch>

@@ -34,7 +34,7 @@ const Recipe = ({match, recipes, history, book, deleteRecipe}) => {
            <div className="recipe-image"><img src={recipe.image_url} alt={recipe.name}></img></div>
            <div className="recipe-ingredients">
               <h3>Ingredients:</h3>
-              {recipe.ingredients.split(',').map(i => <li>{i}</li>)}
+              {recipe.ingredients.split(',').map((i, index) => <li key={index}>{i}</li>)}
            </div>
            <div className="Instructions">
              <h3>Instructions</h3>
