@@ -7,10 +7,10 @@ import { Link, withRouter } from 'react-router-dom'
 
 // //must pass in props when it's a functional component
 const Recipe = (props) => {
-    // debugger
-   console.log("recipe props:", props)
+   const {match, recipes} = props
+   console.log("recipe props:", match, recipes)
     
-   let recipe = props.recipes.find(recipe => recipe.id === parseInt(props.match.params.id))
+   let recipe = recipes.find(recipe => recipe.id === parseInt(match.params.id))
    
     if (!recipe) {
         return (
@@ -35,15 +35,16 @@ const Recipe = (props) => {
   
     return (
         <div className="Recipe">
-            {recipe.name}
-        {/* //     <h2 className="Recipe-Name">{recipe.name}</h2>
-        //     <sub className="overview">{recipe.overview}</sub>
-        //     Cook Time: {recipe.prep_time} || Prep Time: {recipe.cook_time}
-        //     <p><button onClick={() => handleDelete(props.book.id, recipe.id)}>Delete</button>
-        //     <Link to={`/books/${props.book.id}/recipes/${recipe.id}/edit`} className="btn-edit">Edit</Link></p>
-        //     <div className="recipe-image"><img src={recipe.image_url} alt={recipe.name}></img></div>
-        //     <div className="recipe-ingredients">Ingredients: {recipe.ingredients}</div>
-        //     <div className="recipe-instructions">Instructions: {recipe.instructions}</div> */}
+           <h2 className="Recipe-Name">{recipe.name}</h2>
+           <sub className="overview">{recipe.overview}</sub>
+           Cook Time: {recipe.prep_time} || Prep Time: {recipe.cook_time}
+           {props.book ? <p><button onClick={() => handleDelete(props.book.id, recipe.id)}>Delete</button>
+           <Link to={`/books/${props.book.id}/recipes/${recipe.id}/edit`} className="btn-edit">Edit</Link></p> : 
+           ""
+          }
+           <div className="recipe-image"><img src={recipe.image_url} alt={recipe.name}></img></div>
+           <div className="recipe-ingredients">Ingredients: {recipe.ingredients}</div>
+           <div className="recipe-instructions">Instructions: {recipe.instructions}</div>
         </div>  
     )
 }
