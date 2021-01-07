@@ -24,6 +24,7 @@ class BooksContainer extends React.Component {
                 <Switch>
                 {/* //switch returns first path that matches - solves id/new problem */}
                     <Route path='/books/new' component={BooksInput} />
+                    <Route path='/books/:id/edit' render={(routerProps)=> <BooksInput {...routerProps} books={this.props.books} editMode={true} />}  /> 
                     <Route path='/books/:id' render={(routerProps)=> <Book {...routerProps} books={this.props.books}/>} />
                     <Route path='/books' render={(routerProps)=> <Books {...routerProps} books={this.props.books}/>} />
                     

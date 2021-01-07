@@ -21,8 +21,8 @@ class BooksController < ApplicationController
    end 
 
    def update
-    @book.recipes << @recipe
-    if @book.save 
+    binding.pry
+    if @book.update(book_params)
       render json: BookSerializer.new(@book).to_serialized_json, status: :accepted
     else 
       render json: { error: @book.errors.full_messages }

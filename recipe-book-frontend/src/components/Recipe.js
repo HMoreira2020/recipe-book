@@ -4,10 +4,8 @@ import {deleteRecipe} from '../actions/deleteRecipe'
 import { Link, withRouter } from 'react-router-dom'
 
 
-const Recipe = (props) => {
-   const {match, recipes, history, book} = props
-   console.log("recipe props:", match, recipes, history)
-    
+const Recipe = ({match, recipes, history, book, deleteRecipe}) => {
+
    let recipe = recipes.find(recipe => recipe.id === parseInt(match.params.id))
    
     if (!recipe) {
@@ -19,20 +17,18 @@ const Recipe = (props) => {
       }
 
     const handleDelete = (bookId, recipeId) => {
-        props.deleteRecipe(bookId, recipeId)
+        deleteRecipe(bookId, recipeId)
         history.push(`/books/${bookId}`);
     }
 
-    // parseInt(props.match.params.bookId) will give me the bookId "1" from the url 
-    //so should I fetch the info i need to avoid losing everything on refresh
     return (
         <div className="Recipe">
-           <h2 className="Recipe-Name">{recipe.name}</h2>
-           <sub className="overview">{recipe.overview}</sub>
+           <h2 className="name">{recipe.name}</h2>
+           <div className="description">{recipe.overview}</div>
            <div className="recipe-time">Cook Time: {recipe.prep_time} || Prep Time: {recipe.cook_time}</div>
            
-          {props.book ? <p className="recipe-controls"><button onClick={() => handleDelete(book.id, recipe.id)}>Remove</button>
-           <button><Link to={`/books/${props.book.id}/recipes/${recipe.id}/edit`} className="btn-edit">Edit</Link></button></p> : 
+          {book ? <p className="recipe-controls"><button onClick={() => handleDelete(book.id, recipe.id)}>Remove</button>
+           <button><Link to={`/books/${book.id}/recipes/${recipe.id}/edit`} className="btn-edit">Edit</Link></button></p> : 
            null
           }
            <div className="recipe-image"><img src={recipe.image_url} alt={recipe.name}></img></div>
