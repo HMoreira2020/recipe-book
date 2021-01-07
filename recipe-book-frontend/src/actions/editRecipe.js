@@ -1,5 +1,4 @@
 export const editRecipe = (recipe, recipeId, bookId) => {
-    debugger
     return (dispatch) => {
         return fetch(`http://localhost:3000/books/${bookId}/recipes/${recipeId}`, {
             headers: {

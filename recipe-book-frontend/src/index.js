@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 import {BrowserRouter as Router} from 'react-router-dom'
 import bookReducer from './reducers/bookReducer'
 
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 let store = createStore(bookReducer, composeEnhancers(applyMiddleware(thunk)))
