@@ -14,9 +14,9 @@ class RecipesList extends React.Component {
         console.log(this.props)
         return (
             <div className="Recipes-List">
-
             <Route path='/recipes-list/:id' render={(routerProps)=> <Recipe {...routerProps} recipes={this.props.recipes}/>} />
-
+            
+            <h1>All Recipes</h1>
                 {this.props.recipes && this.props.recipes.map(recipe => 
             <li key={recipe.id}>
                 <Link to={`/recipes-list/${recipe.id}`}>{recipe.name}</Link>

@@ -38,13 +38,21 @@ const Recipe = (props) => {
            <h2 className="Recipe-Name">{recipe.name}</h2>
            <sub className="overview">{recipe.overview}</sub>
            Cook Time: {recipe.prep_time} || Prep Time: {recipe.cook_time}
-           {props.book ? <p><button onClick={() => handleDelete(props.book.id, recipe.id)}>Delete</button>
+           
+          {props.book ? <p><button onClick={() => handleDelete(props.book.id, recipe.id)}>Delete</button>
            <Link to={`/books/${props.book.id}/recipes/${recipe.id}/edit`} className="btn-edit">Edit</Link></p> : 
-           ""
+           null
           }
            <div className="recipe-image"><img src={recipe.image_url} alt={recipe.name}></img></div>
-           <div className="recipe-ingredients">Ingredients: {recipe.ingredients}</div>
-           <div className="recipe-instructions">Instructions: {recipe.instructions}</div>
+           <div className="recipe-ingredients">Ingredients: {recipe.ingredients.split(',').map(i => <li>{i}</li>)}</div>
+           <div className="Instructions">
+              Step 1: {recipe.instructions_1}
+              Step 2: {recipe.instructions_2}
+              Step 3: {recipe.instructions_3}
+              Step 4: {recipe.instructions_4}
+              Step 5: {recipe.instructions_5}
+           </div>
+           
         </div>  
     )
 }

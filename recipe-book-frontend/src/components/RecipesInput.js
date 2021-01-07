@@ -19,7 +19,11 @@ class RecipesInput extends React.Component {
         const ingredients = this.ingredientsRef.value
         const cook_time = this.cookTimeRef.value
         const prep_time = this.prepTimeRef.value
-        const instructions = this.instructionsRef.value
+        const instructions_1 = this.instructions1Ref.value
+        const instructions_2 = this.instructions2Ref.value
+        const instructions_3 = this.instructions3Ref.value
+        const instructions_4 = this.instructions4Ref.value
+        const instructions_5 = this.instructions5Ref.value
         const image_url = this.imageRef.value
         if (editMode) {
             const recipeData = {
@@ -29,7 +33,11 @@ class RecipesInput extends React.Component {
                 ingredients, 
                 cook_time, 
                 prep_time, 
-                instructions   
+                instructions_1,
+                instructions_2,
+                instructions_3,
+                instructions_4,
+                instructions_5 
             }
             this.props.editRecipe(recipeData, recipeId, this.props.book.id)
         } else {
@@ -40,7 +48,11 @@ class RecipesInput extends React.Component {
                 ingredients, 
                 cook_time, 
                 prep_time, 
-                instructions, 
+                instructions_1,
+                instructions_2,
+                instructions_3,
+                instructions_4,
+                instructions_5, 
                 editing: false
             }
             this.props.addRecipe(newRecipe, this.props.book.id)
@@ -118,10 +130,42 @@ class RecipesInput extends React.Component {
                     <textarea
                         required
                         type="text" 
-                        ref={input => this.instructionsRef = input} 
-                        name="instructions" 
+                        ref={input => this.instructions1Ref = input} 
+                        name="instructions-1" 
                         placeholder="Instructions for your recipe"
-                        defaultValue={recipe.instructions}>
+                        defaultValue={recipe.instructions_1}>
+                    </textarea><br/>
+                    <textarea
+                        required
+                        type="text" 
+                        ref={input => this.instructions2Ref = input} 
+                        name="instructions-2" 
+                        placeholder="Instructions for your recipe"
+                        defaultValue={recipe.instructions_2}>
+                    </textarea><br/>
+                    <textarea
+                        required
+                        type="text" 
+                        ref={input => this.instructions3Ref = input} 
+                        name="instructions-3" 
+                        placeholder="Instructions for your recipe"
+                        defaultValue={recipe.instructions_3}>
+                    </textarea><br/>
+                    <textarea
+                        required
+                        type="text" 
+                        ref={input => this.instructions4Ref = input} 
+                        name="instructions-4" 
+                        placeholder="Instructions for your recipe"
+                        defaultValue={recipe.instructions_4}>
+                    </textarea><br/>
+                    <textarea
+                        required
+                        type="text" 
+                        ref={input => this.instructions5Ref = input} 
+                        name="instructions-5" 
+                        placeholder="Instructions for your recipe"
+                        defaultValue={recipe.instructions_5}>
                     </textarea><br/>
                     <input type="submit" value={buttonTitle}></input>
                 </form>
@@ -145,7 +189,11 @@ RecipesInput.defaultProps = {
         ingredients: "",
         cook_time: "",
         prep_time: "", 
-        instructions: ""
+        instructions_1: "",
+        instructions_2: "",
+        instructions_3: "",
+        instructions_4: "",
+        instructions_5: ""
     }    // Pass defined Post object in create mode in order not to get undefined objects in 'defaultValue's of inputs.
 }
 
