@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { addRecipe } from '../actions/addRecipe'
 import { editRecipe } from '../actions/editRecipe'
 import PropTypes from 'prop-types';
-import StyledForm from "../styles"
+
 
 
 class RecipesInput extends React.Component {
@@ -67,13 +67,12 @@ class RecipesInput extends React.Component {
         console.log(this.props)
         const {editMode} = this.props
         const recipe = this.props.editMode ? this.props.book.recipes.find(recipe => recipe.id === parseInt(this.props.match.params.id)) : this.props.recipe
-        const pageTitle = editMode ? 'Edit Recipe' : 'Create Recipe';
+        const pageTitle = editMode ? 'Edit Your Recipe' : 'Create Your Recipe';
         const buttonTitle = editMode ? 'Update' : 'Add';
         return(
             <div className="Recipes-Input">
-                <h4>{pageTitle}</h4>
-                <StyledForm>
                 <form id={recipe.id} onSubmit={this.handleOnSubmit}>
+                <h4 className="input-title">{pageTitle}</h4>
                     <label>Recipe Name</label><br/>
                     <input 
                         required
@@ -134,7 +133,7 @@ class RecipesInput extends React.Component {
                         type="text" 
                         ref={input => this.instructions1Ref = input} 
                         name="instructions-1" 
-                        placeholder="Instructions for your recipe"
+                        placeholder="Step 1."
                         defaultValue={recipe.instructions_1}>
                     </textarea><br/>
                     <textarea
@@ -142,7 +141,7 @@ class RecipesInput extends React.Component {
                         type="text" 
                         ref={input => this.instructions2Ref = input} 
                         name="instructions-2" 
-                        placeholder="Instructions for your recipe"
+                        placeholder="Step 2."
                         defaultValue={recipe.instructions_2}>
                     </textarea><br/>
                     <textarea
@@ -150,7 +149,7 @@ class RecipesInput extends React.Component {
                         type="text" 
                         ref={input => this.instructions3Ref = input} 
                         name="instructions-3" 
-                        placeholder="Instructions for your recipe"
+                        placeholder="Step 3."
                         defaultValue={recipe.instructions_3}>
                     </textarea><br/>
                     <textarea
@@ -158,7 +157,7 @@ class RecipesInput extends React.Component {
                         type="text" 
                         ref={input => this.instructions4Ref = input} 
                         name="instructions-4" 
-                        placeholder="Instructions for your recipe"
+                        placeholder="Step 4."
                         defaultValue={recipe.instructions_4}>
                     </textarea><br/>
                     <textarea
@@ -166,12 +165,12 @@ class RecipesInput extends React.Component {
                         type="text" 
                         ref={input => this.instructions5Ref = input} 
                         name="instructions-5" 
-                        placeholder="Instructions for your recipe"
+                        placeholder="Step 5."
                         defaultValue={recipe.instructions_5}>
                     </textarea><br/>
-                    <input type="submit" value={buttonTitle}></input>
+                    <button type="submit">{buttonTitle}</button>
                 </form>
-                </StyledForm>
+               
             </div>
         )
     }

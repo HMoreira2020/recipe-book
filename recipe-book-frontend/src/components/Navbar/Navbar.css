@@ -1,5 +1,5 @@
 .NavBarItems {
-    background: linear-gradient(90deg, rgb(110, 94, 254) 0%, rgba(73,63,252,1) 100%);
+    background: #FAF7F2;
     height: 80px;
     display: flex;  
     justify-content: center;
@@ -8,7 +8,8 @@
 }
 
 .navbar-logo {
-    color: #fff;
+    color: black;
+    font-family: 'Cormorant Garamond', serif;
     justify-self: start;
     margin-left: 20px;
     cursor: pointer;
@@ -33,19 +34,19 @@
 }
 
 .nav-links {
-    color: white;
+    color: black;
     text-decoration: none;
     padding: 0.5rem 1rem;
+    font-family: 'Lato', sans-serif;
 }
 
 .nav-links:hover {
-    background-color: #6d76f7;
     border-radius: 4px;
     transition: all 0.2s ease-out;
 }
 
 .fa-bars {
-    color: #fff;
+    color: black;
 
 }
 
@@ -63,10 +64,10 @@
     }
 
     .nav-menu {
+        background: #FAF7F2;
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: 500px;
         position: absolute;
         top: 80px;
         left: -100%;
@@ -75,7 +76,6 @@
     }
 
     .nav-menu.active {
-        background: #6668f4;
         left: 0; 
         opacity: 1;
         transition: all 0.5s ease;
@@ -90,7 +90,6 @@
     }
 
     .nav-links:hover {
-        background-color: #7577fa;
         border-radius: 0; 
     }
 
@@ -112,7 +111,7 @@
     }
 
     .fa-times {
-        color: #fff;
+        color: black;
         font-size: 2rem;
     }
 
@@ -123,15 +122,12 @@
         margin: 2rem auto;
         border-radius: 4px;
         width: 20%;
-        background: #4ad9e4;
         text-decoration: none;
         color: #fff;
         font-size: 1rem;
     }
 
     .nav-links-mobile:hover {
-        background: #fff;
-        color: #6586F4;
         transition: 250ms;
     }
 

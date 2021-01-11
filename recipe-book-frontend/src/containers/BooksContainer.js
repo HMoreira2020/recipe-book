@@ -27,7 +27,6 @@ class BooksContainer extends React.Component {
                     <Route path='/books/:id/edit' render={(routerProps)=> <BooksInput {...routerProps} books={this.props.books} editMode={true} />}  /> 
                     <Route path='/books/:id' render={(routerProps)=> <Book {...routerProps} books={this.props.books}/>} />
                     <Route path='/books' render={(routerProps)=> <Books {...routerProps} books={this.props.books}/>} />
-                    
                 </Switch>
             </div>
         )

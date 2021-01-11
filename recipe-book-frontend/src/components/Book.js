@@ -30,12 +30,16 @@ const Book = (props) => {
 
     return (
         <div className="Book">
-            <h2 className="name">{book.title}</h2>
-            <div className="description">{book.description}</div>
-            <p className="book-controls">
-              <button onClick={() => handleDeleteBook(book.id)}>Delete</button>
-              <button><Link to={`/books/${book.id}/edit`} className="btn-edit">Edit</Link></button>
-            </p>
+            <h1 className="book-title">{book.title}</h1>
+            <div className="book-description">{book.description}</div>
+            
+            <div className="book-controls">
+              <button onClick={() => handleDeleteBook(book.id)}>Delete</button> | 
+              <Link to={`/books/${book.id}/edit`} className="btn-edit">Edit</Link> | 
+              <Link to={`/books/${book.id}/recipes/new`}>New Recipe</Link>
+            </div>
+            
+           
             <RecipesContainer book={book} /> 
 
         </div>

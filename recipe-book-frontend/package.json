@@ -14,14 +14,13 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.2.1",
-    "tailwindcss": "^2.0.2",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
     "build:css": "postcss src/assets/tailwind.css -o src/assets/tailwind.css",
     "watch:css": "postcss src/assets/tailwind.css -o src/assets/tailwind.css",
-    "start": "yarn build:css && react-scripts start",
-    "build": "yarn build:css && react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -44,7 +43,6 @@
     ]
   },
   "devDependencies": {
-    "autoprefixer": "^10.2.0",
     "babel-plugin-macros": "^3.0.1",
     "postcss-cli": "^8.3.1",
     "twin.macro": "^2.0.8"

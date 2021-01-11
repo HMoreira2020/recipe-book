@@ -21,7 +21,6 @@ class BooksController < ApplicationController
    end 
 
    def update
-    binding.pry
     if @book.update(book_params)
       render json: BookSerializer.new(@book).to_serialized_json, status: :accepted
     else 

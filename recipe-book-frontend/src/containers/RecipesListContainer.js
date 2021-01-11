@@ -13,19 +13,43 @@ class RecipesListContainer extends React.Component {
     render() {
         console.log(this.props)
         return (
-            <div className="Recipes-List">
+            <div className="recipes-cards">
             <Route path='/recipes-list/:id' render={(routerProps)=> <Recipe {...routerProps} recipes={this.props.recipes}/>} />
-            
-            <h1>All Recipes</h1>
-                {this.props.recipes && this.props.recipes.map(recipe => 
-            <li key={recipe.id}>
-                <Link to={`/recipes-list/${recipe.id}`}>{recipe.name}</Link>
-            </li>
-                )
-            }
 
-
+            {this.props.recipes && this.props.recipes.map((recipe, index) => 
+                <div className="recipe-card-container" key={recipe.id}>
+                    <div className="card u-clearfix">
+                        <div class="card-body">
+                            <span class="card-number card-circle subtle">{index + 1}</span>
+                            <span class="card-book-title subtle"></span>
+                            <h2 className="card-title">{recipe.name}</h2>
+                            <span className="card-description">{recipe.overview}</span>
+                            <div class="card-read"><Link to={`/recipes-list/${recipe.id}`}>Read</Link></div>
+                        </div>
+                        {/* <img className="recipe-card-media" src={recipe.image_url} alt={recipe.name}></img> */}
+                    </div>
+                    <div class="card-shadow"></div>
+                </div>
+            )}
             </div>
+            // <div className="recipe-cards">
+            // <Route path='/recipes-list/:id' render={(routerProps)=> <Recipe {...routerProps} recipes={this.props.recipes}/>} />
+            
+            // <h1>All Recipes</h1>
+            //     {this.props.recipes && this.props.recipes.map(recipe => 
+            // <div class="container" key={recipe.id}>
+            //     <img className="image" src={recipe.image_url} alt={recipe.name}></img>
+            //     <Link to={`/recipes-list/${recipe.id}`}>
+            //         <div class="middle">
+            //             <div class="text">{recipe.name}</div>
+            //         </div>
+            //     </Link>
+            // </div>
+            //     )
+            // }
+
+
+            // </div>
         )
     }
 
@@ -40,3 +64,24 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {fetchRecipes})(RecipesListContainer)
+
+
+{/* <div className="recipes-cards">
+<Route path='/recipes-list/:id' render={(routerProps)=> <Recipe {...routerProps} recipes={this.props.recipes}/>} />
+
+            {this.props.recipes && this.props.recipes.map((recipe, index) => 
+                <div className="recipe-card-container" key={recipe.id}>
+                    <div className="card u-clearfix">
+                        <div class="card-body">
+                            <span class="card-number card-circle subtle">{index + 1}</span>
+                            <span class="card-book-title subtle"></span>
+                            <h2 className="card-title">{recipe.name}</h2>
+                            <span className="card-description">{recipe.overview}</span>
+                            <div class="card-read"><Link to={`/recipes-list/${recipe.id}`}>Read</Link></div>
+                        </div>
+                        {/* <img className="recipe-card-media" src={recipe.image_url} alt={recipe.name}></img> */}
+            //         </div>
+            //         <div class="card-shadow"></div>
+            //     </div>
+            // )}
+            // </div> */}

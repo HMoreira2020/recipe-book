@@ -6,7 +6,7 @@ import { addBook } from '../actions/addBook'
 import { withRouter } from 'react-router-dom'
 import { editBook } from '../actions/editBook'
 import PropTypes from 'prop-types';
-import StyledForm from "../styles"
+
 
 
 class BooksInput extends React.Component {
@@ -40,14 +40,13 @@ class BooksInput extends React.Component {
     render(){
         const {editMode} = this.props
         const book = editMode ? this.props.books.find(book => book.id === parseInt(this.props.match.params.id)) : this.props.book
-        const pageTitle = editMode ? 'Edit Book' : 'Create Book';
+        const pageTitle = editMode ? 'Edit Your Recipe Book' : 'Create Your Recipe Book';
         const buttonTitle = editMode ? 'Update' : 'Add';
         return(
             <div className="Books-Input">
-                <h4>{pageTitle}</h4>
-                <StyledForm>
                 <form id={book.id} onSubmit={this.handleOnSubmit}>
-                    <label>Recipe Book Title</label><br/>
+                    <h4 className="input-title">{pageTitle}</h4>
+                    <label>Title</label><br/>
                     <input 
                         required
                         ref={input => this.titleRef = input} 
@@ -65,9 +64,9 @@ class BooksInput extends React.Component {
                         placeholder="Description" 
                         defaultValue={book.description}>
                     </input><br/>
-                    <input type="submit" value={buttonTitle}></input>
+                    <button type="submit">{buttonTitle}</button>
                 </form>
-                </StyledForm>
+               
             </div>
         )
     }

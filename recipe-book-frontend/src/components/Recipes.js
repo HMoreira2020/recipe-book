@@ -10,19 +10,26 @@ const Recipes = (props) => {
     //any time we refresh the BooksContainer will remount and in the componentDidMount the books are fetched and store updated
     return (
         
-        <div className="Recipes">
-           <h3>Table of Contents</h3>
-           {/* //link to new recipe page */}
-           <div className="new-recipes-link">
-                <Link to={`/books/${props.book.id}/recipes/new`}>Add a New Recipe</Link>
-            </div>
+        <div class="recipes">
+           <h2 className="table-of-contents">Table of Contents</h2>
            {/* iterate through the books recipes and display a link to the recipe */}
-           {props.recipes && props.recipes.map(recipe => 
-            <li key={recipe.id}>
-                <Link to={`/books/${props.book.id}/recipes/${recipe.id}`}>{recipe.name}</Link>
-            </li>
-                )
-            }
+           
+           <div class="recipes-links">
+            {props.recipes && props.recipes.map((recipe, index) => 
+                <div className="recipe-card-container" key={recipe.id}>
+                    <div className="card u-clearfix">
+                        <div class="card-body">
+                            <span class="card-number card-circle subtle">{index + 1}</span>
+                            {/* <span class="card-book-title subtle"></span> */}
+                            <h2 className="recipe-card-title">{recipe.name}</h2>
+                            {/* <span className="card-description">{recipe.overview}</span> */}
+                            <div class="card-read"><Link to={`/books/${props.book.id}/recipes/${recipe.id}`}>Read</Link></div>
+                        </div>
+                    </div>
+                    <div class="card-shadow"></div>
+                </div>
+            )}
+            </div>
 
         </div>
     )

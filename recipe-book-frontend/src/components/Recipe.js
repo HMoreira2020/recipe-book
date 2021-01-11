@@ -22,20 +22,26 @@ const Recipe = ({match, recipes, history, book, deleteRecipe}) => {
     }
 
     return (
-        <div className="Recipe">
-           <h2 className="name">{recipe.name}</h2>
-           <div className="description">{recipe.overview}</div>
+      <div className="recipe-card-container">
+        <div className="card u-clearfix">
+          <div class="card-body">
+              <h2 className="card-title">{recipe.name}</h2>
+                <span className="card-description">{recipe.overview}</span>
+        </div>
+      </div>
+           
            <div className="recipe-time">Cook Time: {recipe.prep_time} || Prep Time: {recipe.cook_time}</div>
            
           {book ? <p className="recipe-controls"><button onClick={() => handleDelete(book.id, recipe.id)}>Remove</button>
            <button><Link to={`/books/${book.id}/recipes/${recipe.id}/edit`} className="btn-edit">Edit</Link></button></p> : 
            null
           }
-           <div className="recipe-image"><img src={recipe.image_url} alt={recipe.name}></img></div>
-           <div className="recipe-ingredients">
-              <h3>Ingredients:</h3>
+           <img className="full-recipe-img" src={recipe.image_url} alt={recipe.name}></img>
+           <div>Ingredients:</div>
+              <ul>
               {recipe.ingredients.split(',').map((i, index) => <li key={index}>{i}</li>)}
-           </div>
+              </ul>
+          
            <div className="Instructions">
              <h3>Instructions</h3>
               <li>Step 1: {recipe.instructions_1}</li>
