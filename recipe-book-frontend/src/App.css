@@ -32,7 +32,7 @@ h2 {
     text-align: center;
 }
 
-  .book-title {
+  .book-title, .recipes-list-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 50px;
     font-weight: 300;
@@ -430,17 +430,53 @@ img {
 }
 
 /* recipes list grid display */
+.Recipes-List-Container {
+  height: 80vh;
+  padding: 70px
+}
+
 .recipes-grid-container {
     display: grid;
+    grid-gap: 50px;
     grid-template-columns: auto auto auto;
-    padding: 20px;
+    padding: 10px;
     width: 80vw;
     margin: auto;
 }
 
 .recipe-grid-item {
     display: inline-grid;
+    border: 1px ;
+    padding: 30px;
+    background-color: white;
+    text-align: center;
+    box-shadow: 10px 10px 5px #aaaaaa;
 }
 
+/* books grid */
 
+.books {
+  height: 80vh;
+  padding: 70px
+}
+
+.books-grid-container {
+    display: grid;
+    grid-gap: 50px;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+    width: 80vw;
+    margin: auto;
+}
+
+.book-grid-item {
+    display: inline-grid;
+    border: 1px;
+    box-shadow: ;
+    padding: 30px;
+    text-align: center;
+    height: 400px;
+    background-color: white;
+    box-shadow: 10px 10px 5px #aaaaaa;
+}
   

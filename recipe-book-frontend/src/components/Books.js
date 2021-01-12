@@ -7,10 +7,17 @@ const Books = (props) => {
     return (
         <div className="books">
            <h1 className="book-title">Recipe Books</h1>
+           <div className="books-grid-container">
+            
             {props.books.map(book => 
-            <div key={book.id}>
-                <h2 className=""><Link to={`/books/${book.id}`}>{book.title}</Link></h2>
+            <div className="book-grid-item" key={book.id}>
+                <div className="card u-clearfix">
+                <h2 className="book-title">{book.title}</h2>
+                <span className="book-description">{book.description}</span>
+                    <Link to={`/books/${book.id}`}>Read</Link>
+                </div>
             </div>)}
+        </div>
         </div>
     )
 }

@@ -13,17 +13,16 @@ class RecipesListContainer extends React.Component {
     render() {
         console.log(this.props)
         return (
+            <div className="Recipes-List-Container">
+                <h1 className="recipes-list-title">Recipes</h1>
             <div className="recipes-grid-container">
             <Route path='/recipes-list/:id' render={(routerProps)=> <Recipe {...routerProps} recipes={this.props.recipes}/>} />
 
             {this.props.recipes && this.props.recipes.map((recipe, index) => 
                 <div className="recipe-grid-item" key={recipe.id}>
                     <div className="card u-clearfix">
-                       
-                            <span className="card-number card-circle subtle">{index + 1}</span>
-                            <span className="card-book-title subtle"></span>
-                            <h2 className="card-title">{recipe.name}</h2>
-                            <span className="card-description">{recipe.overview}</span>
+                            <h2 className="recipe-title">{recipe.name}</h2>
+                            <span className="recipe-description">{recipe.overview}</span>
                             <div className="card-read"><Link to={`/recipes-list/${recipe.id}`}>Read</Link></div>
                     
                         {/* <img className="recipe-card-media" src={recipe.image_url} alt={recipe.name}></img> */}
@@ -32,12 +31,13 @@ class RecipesListContainer extends React.Component {
                 </div>
             )}
             </div>
-            // <div className="recipe-cards">
+            
+            {/* // <div className="recipe-cards">
             // <Route path='/recipes-list/:id' render={(routerProps)=> <Recipe {...routerProps} recipes={this.props.recipes}/>} />
             
             // <h1>All Recipes</h1>
-            //     {this.props.recipes && this.props.recipes.map(recipe => 
-            // <div class="container" key={recipe.id}>
+            //     {this.props.recipes && this.props.recipes.map(recipe =>  */}
+            {/* // <div class="container" key={recipe.id}>
             //     <img className="image" src={recipe.image_url} alt={recipe.name}></img>
             //     <Link to={`/recipes-list/${recipe.id}`}>
             //         <div class="middle">
@@ -49,7 +49,8 @@ class RecipesListContainer extends React.Component {
             // }
 
 
-            // </div>
+            // </div> */}
+           </div>
         )
     }
 
