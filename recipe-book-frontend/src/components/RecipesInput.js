@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { addRecipe } from '../actions/addRecipe'
 import { editRecipe } from '../actions/editRecipe'
 import PropTypes from 'prop-types';
-
+import { withRouter } from 'react-router-dom'
 
 
 class RecipesInput extends React.Component {
@@ -41,6 +41,7 @@ class RecipesInput extends React.Component {
                 instructions_5 
             }
             this.props.editRecipe(recipeData, recipeId, this.props.book.id)
+            this.props.history.push(`/books/${this.props.book.id}/recipes/${recipeId}`);
         } else {
             const newRecipe = {
                 name,
@@ -57,6 +58,7 @@ class RecipesInput extends React.Component {
                 editing: false
             }
             this.props.addRecipe(newRecipe, this.props.book.id)
+            this.props.history.push(`/books/${this.props.book.id}/recipes`)
         }
     }
 
@@ -137,7 +139,6 @@ class RecipesInput extends React.Component {
                         defaultValue={recipe.instructions_1}>
                     </textarea><br/>
                     <textarea
-                        required
                         type="text" 
                         ref={input => this.instructions2Ref = input} 
                         name="instructions-2" 
@@ -145,7 +146,6 @@ class RecipesInput extends React.Component {
                         defaultValue={recipe.instructions_2}>
                     </textarea><br/>
                     <textarea
-                        required
                         type="text" 
                         ref={input => this.instructions3Ref = input} 
                         name="instructions-3" 
@@ -153,7 +153,6 @@ class RecipesInput extends React.Component {
                         defaultValue={recipe.instructions_3}>
                     </textarea><br/>
                     <textarea
-                        required
                         type="text" 
                         ref={input => this.instructions4Ref = input} 
                         name="instructions-4" 
@@ -161,7 +160,6 @@ class RecipesInput extends React.Component {
                         defaultValue={recipe.instructions_4}>
                     </textarea><br/>
                     <textarea
-                        required
                         type="text" 
                         ref={input => this.instructions5Ref = input} 
                         name="instructions-5" 
@@ -200,4 +198,4 @@ RecipesInput.defaultProps = {
 }
 
 
-export default connect(null, {addRecipe, editRecipe})(RecipesInput)
+export default withRouter(connect(null, {addRecipe, editRecipe})(RecipesInput))

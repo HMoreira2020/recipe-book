@@ -14,7 +14,11 @@ export const editRecipe = (recipe, recipeId, bookId) => {
                 alert(book.error)
             } else {
                 dispatch({type: "EDIT_RECIPE", payload: book})
+                alert("recipe updated")
             }
         })
     }
 }
+
+
+

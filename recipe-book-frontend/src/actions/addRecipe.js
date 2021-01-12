@@ -15,6 +15,7 @@ export const addRecipe = (recipe, bookId) => {
                 alert(book.error)
             } else {
                 dispatch({type: "ADD_RECIPE", payload: book})
+                alert("New Recipe added!")
             }
         })
         //redirect here if needed with history.push after the dispatch inside the 2nd .then

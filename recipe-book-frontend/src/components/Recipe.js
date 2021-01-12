@@ -35,24 +35,29 @@ const Recipe = ({match, recipes, history, book, deleteRecipe}) => {
           </div>
            <div className="recipe-body">
               <img src={recipe.image_url} alt={recipe.name}></img>
-             
+             <div className="recipe-info">
               <div className="cook-time"><strong>Cook Time:</strong> {recipe.prep_time}</div> 
               <div className="prep-time">Prep Time: {recipe.cook_time}</div>
                 
-                <div className="ingredients">Ingredients:</div>
+                <div className="ingredients">
+                  <h3>Ingredients:</h3>
                   <ul>
                     {recipe.ingredients.split(',').map((i, index) => <li key={index}>{i}</li>)}
                   </ul>
                 </div>
-                
-                <div className="instructions">
+                </div>
+
+                <div className="recipe-instructions">
                   <h3>Instructions</h3>
+                  <ul>
                       <li>Step 1: {recipe.instructions_1}</li>
                       <li>Step 2: {recipe.instructions_2}</li>
                       <li>Step 3: {recipe.instructions_3}</li>
                       <li>Step 4: {recipe.instructions_4}</li>
                       <li>Step 5: {recipe.instructions_5}</li>
+                  </ul>
                 </div>
+              </div>
         </div>  
     )
 }
