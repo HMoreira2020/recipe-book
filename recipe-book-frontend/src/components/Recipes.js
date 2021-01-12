@@ -14,7 +14,7 @@ const Recipes = (props) => {
            <h3 className="table-of-contents">Table of Contents</h3>
            
            {/* iterate through the books recipes and display a link to the recipe */}
-           <div class="recipes-links">
+           <div className="recipes-links">
             {props.recipes && props.recipes.map((recipe, index) => 
                 <div className="recipe-card-container" key={recipe.id}>
                             <span className="card-number card-circle subtle">{index + 1}</span>

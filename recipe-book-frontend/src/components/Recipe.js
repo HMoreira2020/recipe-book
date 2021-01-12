@@ -34,32 +34,31 @@ const Recipe = ({match, recipes, history, book, deleteRecipe}) => {
               }
           </div>
            <div className="recipe-body">
+              <div className="recipe-info">
               <img src={recipe.image_url} alt={recipe.name}></img>
-             <div className="recipe-info">
-              <div className="cook-time"><strong>Cook Time:</strong> {recipe.prep_time}</div> 
-              <div className="prep-time">Prep Time: {recipe.cook_time}</div>
-                
-                <div className="ingredients">
-                  <h3>Ingredients:</h3>
-                  <ul>
-                    {recipe.ingredients.split(',').map((i, index) => <li key={index}>{i}</li>)}
-                  </ul>
-                </div>
-                </div>
+                  <div className="cook-time">Cook Time: {recipe.prep_time}</div> 
+                  <div className="prep-time">Prep Time: {recipe.cook_time}</div>
+              </div>
 
-                <div className="recipe-instructions">
-                  <h3>Instructions</h3>
-                  <ul>
-                      <li>Step 1: {recipe.instructions_1}</li>
-                      {(recipe.instructions_2 !== "") ? <li>Step 2: {recipe.instructions_2}</li> : null}
-                      {(recipe.instructions_3 !== "") ? <li>Step 3: {recipe.instructions_3}</li> : null}
-                      {(recipe.instructions_4 !== "") ? <li>Step 4: {recipe.instructions_4}</li> : null}
-                      {(recipe.instructions_5 !== "") ? <li>Step 5: {recipe.instructions_5}</li> : null}
-                      {/* <li>Step 3: {recipe.instructions_3}</li>
-                      <li>Step 4: {recipe.instructions_4}</li>
-                      <li>Step 5: {recipe.instructions_5}</li> */}
-                  </ul>
-                </div>
+                
+              <div className="recipe-instructions">
+                  <div>
+                    <h3 className="ingredients">Ingredients:</h3>
+                      <ul>
+                        {recipe.ingredients.split(',').map((i, index) => <li key={index}>{i}</li>)}
+                      </ul>
+                 
+                
+                  </div>
+                    <h3 className="instructions">Instructions</h3>
+                      <ul>
+                        <li>Step 1: {recipe.instructions_1}</li>
+                        {(recipe.instructions_2 !== "") ? <li>Step 2: {recipe.instructions_2}</li> : null}
+                        {(recipe.instructions_3 !== "") ? <li>Step 3: {recipe.instructions_3}</li> : null}
+                        {(recipe.instructions_4 !== "") ? <li>Step 4: {recipe.instructions_4}</li> : null}
+                        {(recipe.instructions_5 !== "") ? <li>Step 5: {recipe.instructions_5}</li> : null}
+                      </ul>
+                  </div>
               </div>
         </div>  
     )

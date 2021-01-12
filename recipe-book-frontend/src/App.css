@@ -21,6 +21,10 @@ body, html {
     padding: 0;
 }
 
+h2 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
 
 /* book title, description and controls  */
 .book {
@@ -55,7 +59,7 @@ body, html {
 /* /recipes page with table of contents, links under table of contents and new recipe menu  */
 
 .Recipes-Container {
-    max-width: 80%;
+    max-width: 80vw;
     margin: auto;
 }
 
@@ -90,7 +94,7 @@ body, html {
 .recipe {
     max-width: 50%;
     float: left;
-    padding: 30px;  
+    padding: 30px 0px 50px 0px;  
     background-color: white;
     border: 2px solid rgba(0,0,0,0.15);
 }
@@ -98,20 +102,19 @@ body, html {
 .recipe-body {
     max-width: 80%;
     margin: auto;
+    background: #FAF7F2;
 }
 
 .recipe-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 40px;
     font-weight: 300;
-    line-height: 0px;
     margin: 2px 0;
     text-align: left;
-    padding: 30px;
+    padding: 0px 40px 10px 40px;
     text-align: center;
-    /* max-width: 600px; */
-    word-wrap: break-word;
-    overflow: auto;
+    line-height: 40px;
+
 }
 
 .recipe-description {
@@ -125,36 +128,46 @@ body, html {
     font-weight: 300;
     margin: 10px 0;
     text-align: center;
+    padding-bottom: 20px;;
 }
 
 .recipe-info {
-    border: 2px solid rgba(0,0,0,0.15);
+    
+    border: 2px;
     border-radius: 2px;
-    padding: 25px;
-    max-width: 200px;
-    float: left;
-    margin-bottom: 20px;
-    background: #FAF7F2;
+    padding: 25px 30px 0px 30px;
+    max-width: 100%;
+   
+}
+
+
+h3.instructions, h3.ingredients {
+  padding-top: 20px;
+  padding-bottom: 5px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  
+}
+
+.cook-time {
+  padding: 5px;
+}
+
+.recipe-instructions ul li {
+  padding-top: 10px;
 }
 
 .recipe-instructions {
-    border: 2px solid rgba(0,0,0,0.15);
-    border-radius: 2px;
-    padding: 25px;
     clear: both;
-    margin-top: 20px;
-    background: #FAF7F2;
-    max-width: 630px;
+    border-radius: 2px;
+    padding: 0px 25px 25px 25px;
+    
 }
 
-.recipe-instructions li {
-    margin: 10px 0px;
-}
 
 .recipe-card-container {
   margin: -10px 35px;
   position: relative;
-  /* width: 300px; */
 }
 
 .recipe-card-title {
@@ -185,14 +198,8 @@ ul {
     list-style-type: none;
 }
 
-.instructions {
-    margin: 10px;
-}
 
 
-.ingredients {
-    margin: 10px;
-}
 
   /* *, *:before, *:after {
     box-sizing: inherit;
@@ -317,8 +324,14 @@ ul {
     
 }
 
+.Books-Input {
+    height: 80vh;
+    justify-content: center;
+    align-items: center;   
+}
+
 .Recipes-Input {
-    width: 60%;
+    width: 50%;
     float: left;
     padding: 30px;
     background: white;
@@ -372,32 +385,48 @@ input[type=text], select {
 /* 
   homepage */
   .Home {
-      width: 100%;
-      text-align: center;
-      margin: auto;
+      height: 80vh;
+      position: relative;
   }
+
   .headline {
+    width: 100%;
+    text-align: center; 
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-family: 'Cormorant Garamond', serif;
     font-size: 60px;
     font-weight: 300;
     line-height: 60px;
-    margin: auto;
+   
   }
 
   .welcome-info {
+    margin: 0;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; 
+    width: 100%;
     font-weight: 300;
     line-height: 22px;
-    margin: 10px 0;
+    font-size: 22px;
+  
   }
 
   /* images */
   
 img {
     float: left;
-    margin: 0px 30px 30px 0px;
+    margin: 0px 30px 0px 0px;
     max-width: 60%;
-    border: 2px solid rgba(0,0,0,0.15);
+    border: 20px ;
     border-radius: 2px;
+    z-index: 4;
 }
 
 /* recipes list grid display */
@@ -405,7 +434,7 @@ img {
     display: grid;
     grid-template-columns: auto auto auto;
     padding: 20px;
-    width: 70%;
+    width: 80vw;
     margin: auto;
 }
 

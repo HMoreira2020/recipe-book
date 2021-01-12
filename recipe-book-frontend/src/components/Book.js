@@ -36,7 +36,7 @@ const Book = (props) => {
             <div className="book-controls">
               <button onClick={() => handleDeleteBook(book.id)}>Delete</button> | 
               <Link to={`/books/${book.id}/edit`} className="btn-edit">Edit</Link> | 
-              <Link to={`/books/${book.id}/recipes/new`}>New Recipe</Link>
+              <Link to={`/books/${book.id}/recipes/new`}>Add Recipe</Link>
             </div>
             
            

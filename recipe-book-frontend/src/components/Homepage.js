@@ -5,7 +5,7 @@ const HomePage = () => {
     return (
         <div className="Home">
             <h2 className="headline">Welcome to Recipe Book</h2>
-            <p className="welcome-info">Create your Book and then add your homemade recipes!</p>
+            <div className="welcome-info">Create your Book and then add your homemade recipes!</div>
         </div>
     )
 }
