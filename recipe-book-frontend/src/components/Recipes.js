@@ -11,23 +11,18 @@ const Recipes = (props) => {
     return (
         
         <div class="recipes">
-           <h2 className="table-of-contents">Table of Contents</h2>
-           {/* iterate through the books recipes and display a link to the recipe */}
+           <h3 className="table-of-contents">Table of Contents</h3>
            
+           {/* iterate through the books recipes and display a link to the recipe */}
            <div class="recipes-links">
             {props.recipes && props.recipes.map((recipe, index) => 
                 <div className="recipe-card-container" key={recipe.id}>
-                    <div className="card u-clearfix">
-                        <div class="card-body">
-                            <span class="card-number card-circle subtle">{index + 1}</span>
-                            {/* <span class="card-book-title subtle"></span> */}
-                            <h2 className="recipe-card-title">{recipe.name}</h2>
-                            {/* <span className="card-description">{recipe.overview}</span> */}
-                            <div class="card-read"><Link to={`/books/${props.book.id}/recipes/${recipe.id}`}>Read</Link></div>
+                            <span className="card-number card-circle subtle">{index + 1}</span>
+                            
+                            <Link to={`/books/${props.book.id}/recipes/${recipe.id}`}>
+                                <h2 className="recipe-card-title">{recipe.name}</h2>
+                            </Link>
                         </div>
-                    </div>
-                    <div class="card-shadow"></div>
-                </div>
             )}
             </div>
 
@@ -38,3 +33,19 @@ const Recipes = (props) => {
 export default Recipes
 
 
+{/* <div class="recipes-links">
+{props.recipes && props.recipes.map((recipe, index) => 
+    <div className="recipe-card-container" key={recipe.id}>
+        <div className="card u-clearfix">
+            <div class="card-body">
+                <span class="card-number card-circle subtle">{index + 1}</span>
+                <span class="card-book-title subtle"></span>
+                <h2 className="recipe-card-title">{recipe.name}</h2>
+                <span className="card-description">{recipe.overview}</span>
+                <div class="card-read"><Link to={`/books/${props.book.id}/recipes/${recipe.id}`}>Read</Link></div>
+            </div>
+        </div>
+        <div class="card-shadow"></div>
+    </div>
+)}
+</div> */}

@@ -72,7 +72,7 @@ class RecipesInput extends React.Component {
         return(
             <div className="Recipes-Input">
                 <form id={recipe.id} onSubmit={this.handleOnSubmit}>
-                <h4 className="input-title">{pageTitle}</h4>
+                <h3 className="input-title">{pageTitle}</h3>
                     <label>Recipe Name</label><br/>
                     <input 
                         required

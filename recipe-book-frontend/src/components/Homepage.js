@@ -4,8 +4,8 @@ import React from 'react'
 const HomePage = () => {
     return (
         <div className="Home">
-            <h2>Welcome to Recipe Book</h2>
-            <p>Create your Book and then add your homemade recipes!</p>
+            <h2 className="headline">Welcome to Recipe Book</h2>
+            <p className="welcome-info">Create your Book and then add your homemade recipes!</p>
         </div>
     )
 }

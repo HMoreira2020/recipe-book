@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Books = (props) => {
 
     return (
-        <div class="books">
+        <div className="books">
            <h1 className="book-title">Recipe Books</h1>
             {props.books.map(book => 
             <div key={book.id}>

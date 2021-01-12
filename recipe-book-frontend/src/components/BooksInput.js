@@ -45,7 +45,7 @@ class BooksInput extends React.Component {
         return(
             <div className="Books-Input">
                 <form id={book.id} onSubmit={this.handleOnSubmit}>
-                    <h4 className="input-title">{pageTitle}</h4>
+                    <h3 className="input-title">{pageTitle}</h3>
                     <label>Title</label><br/>
                     <input 
                         required
