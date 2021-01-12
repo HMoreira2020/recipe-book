@@ -51,10 +51,13 @@ const Recipe = ({match, recipes, history, book, deleteRecipe}) => {
                   <h3>Instructions</h3>
                   <ul>
                       <li>Step 1: {recipe.instructions_1}</li>
-                      <li>Step 2: {recipe.instructions_2}</li>
-                      <li>Step 3: {recipe.instructions_3}</li>
+                      {(recipe.instructions_2 !== "") ? <li>Step 2: {recipe.instructions_2}</li> : null}
+                      {(recipe.instructions_3 !== "") ? <li>Step 3: {recipe.instructions_3}</li> : null}
+                      {(recipe.instructions_4 !== "") ? <li>Step 4: {recipe.instructions_4}</li> : null}
+                      {(recipe.instructions_5 !== "") ? <li>Step 5: {recipe.instructions_5}</li> : null}
+                      {/* <li>Step 3: {recipe.instructions_3}</li>
                       <li>Step 4: {recipe.instructions_4}</li>
-                      <li>Step 5: {recipe.instructions_5}</li>
+                      <li>Step 5: {recipe.instructions_5}</li> */}
                   </ul>
                 </div>
               </div>

@@ -13,22 +13,22 @@ class RecipesListContainer extends React.Component {
     render() {
         console.log(this.props)
         return (
-            <div className="recipes-cards">
+            <div className="recipes-grid-container">
             <Route path='/recipes-list/:id' render={(routerProps)=> <Recipe {...routerProps} recipes={this.props.recipes}/>} />
 
             {this.props.recipes && this.props.recipes.map((recipe, index) => 
-                <div className="recipe-card-container" key={recipe.id}>
+                <div className="recipe-grid-item" key={recipe.id}>
                     <div className="card u-clearfix">
-                        <div class="card-body">
-                            <span class="card-number card-circle subtle">{index + 1}</span>
-                            <span class="card-book-title subtle"></span>
+                       
+                            <span className="card-number card-circle subtle">{index + 1}</span>
+                            <span className="card-book-title subtle"></span>
                             <h2 className="card-title">{recipe.name}</h2>
                             <span className="card-description">{recipe.overview}</span>
-                            <div class="card-read"><Link to={`/recipes-list/${recipe.id}`}>Read</Link></div>
-                        </div>
+                            <div className="card-read"><Link to={`/recipes-list/${recipe.id}`}>Read</Link></div>
+                    
                         {/* <img className="recipe-card-media" src={recipe.image_url} alt={recipe.name}></img> */}
                     </div>
-                    <div class="card-shadow"></div>
+                    <div className="card-shadow"></div>
                 </div>
             )}
             </div>

@@ -55,13 +55,12 @@ body, html {
 /* /recipes page with table of contents, links under table of contents and new recipe menu  */
 
 .Recipes-Container {
-    max-width: 70%;
+    max-width: 80%;
     margin: auto;
 }
 
 
 .table-of-contents {
-    
     font-family: 'Cormorant Garamond', serif;
     font-size: 40px;
     font-weight: 300;
@@ -74,22 +73,22 @@ body, html {
 
 .recipes {
     float: right;
-    max-width: 40%;
+    max-width: 50%;
     padding: 30px 0px;   
     background: white;
     border: 2px solid rgba(0,0,0,0.15);
 }
 
 .recipes-links {
-  width: 90%;
-  background-color: #FAF7F2;
+  /* width: 90%;
+  background-color: #FAF7F2; */
   padding: 20px;
   margin: auto;
-  border: 2px solid rgba(0,0,0,0.15);
+  /* border: 2px solid rgba(0,0,0,0.15); */
 }
 
 .recipe {
-    max-width: 60%;
+    max-width: 50%;
     float: left;
     padding: 30px;  
     background-color: white;
@@ -97,7 +96,7 @@ body, html {
 }
 
 .recipe-body {
-    max-width: 100%;
+    max-width: 80%;
     margin: auto;
 }
 
@@ -110,6 +109,9 @@ body, html {
     text-align: left;
     padding: 30px;
     text-align: center;
+    /* max-width: 600px; */
+    word-wrap: break-word;
+    overflow: auto;
 }
 
 .recipe-description {
@@ -145,16 +147,21 @@ body, html {
     max-width: 630px;
 }
 
+.recipe-instructions li {
+    margin: 10px 0px;
+}
+
 .recipe-card-container {
   margin: -10px 35px;
   position: relative;
-  width: 300px;
+  /* width: 300px; */
 }
 
 .recipe-card-title {
     font-family: 'Lato', sans-serif;
     font-weight: 100;
     font-size: 18px;
+    display: inline-block;
 }
 
   .card-number {
@@ -219,11 +226,7 @@ ul {
     z-index: 1;
   }
   
-  .card-body {
-    display: inline-block;
-    width: 200px;
-  }
-   */
+ 
   
   /* .card-author {
     display: block;
@@ -390,10 +393,25 @@ input[type=text], select {
   /* images */
   
 img {
-    float:left;
+    float: left;
     margin: 0px 30px 30px 0px;
-    max-width: 400px;
+    max-width: 60%;
     border: 2px solid rgba(0,0,0,0.15);
     border-radius: 2px;
 }
 
+/* recipes list grid display */
+.recipes-grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 20px;
+    width: 70%;
+    margin: auto;
+}
+
+.recipe-grid-item {
+    display: inline-grid;
+}
+
+
+  
