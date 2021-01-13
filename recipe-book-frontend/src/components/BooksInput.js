@@ -11,12 +11,13 @@ import PropTypes from 'prop-types';
 
 class BooksInput extends React.Component {
    
-
+    
 
     handleOnSubmit = event => {
         event.preventDefault();
         const bookId = parseInt(event.target.id)
-        const {editMode} = this.props;
+        // const {editMode} = this.props;
+        const {editBook, history, editMode, addBook} = this.props
         const title = this.titleRef.value
         const description = this.descriptionRef.value
         if (editMode) {
@@ -24,22 +25,22 @@ class BooksInput extends React.Component {
                 title,
                 description
             }
-            this.props.editBook(bookData, bookId)
+            editBook(bookData, bookId)
         } else {
             const newBook = {
                 title, 
                 description,
                 editing: false
             }
-            this.props.addBook(newBook)
+            addBook(newBook)
         }
-        this.props.history.push('/books')
+        history.push('/books')
     }
     
 
     render(){
-        const {editMode} = this.props
-        const book = editMode ? this.props.books.find(book => book.id === parseInt(this.props.match.params.id)) : this.props.book
+        const {editMode, books, match} = this.props
+        const book = editMode ? books.find(book => book.id === parseInt(match.params.id)) : this.props.book
         const pageTitle = editMode ? 'Edit Your Recipe Book' : 'Create Your Recipe Book';
         const buttonTitle = editMode ? 'Update' : 'Add';
         return(
