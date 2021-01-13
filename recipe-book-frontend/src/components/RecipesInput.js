@@ -80,7 +80,7 @@ class RecipesInput extends React.Component {
                         type="text" 
                         ref={input => this.nameRef = input}
                         name="name" 
-                        placeholder="Give you Recipe a name" 
+                        placeholder="Give your Recipe a name" 
                         defaultValue={recipe.name}>
                     </input><br/>
                     <label>Image URL</label><br/>
@@ -89,7 +89,7 @@ class RecipesInput extends React.Component {
                         type="text" 
                         ref={input => this.imageRef = input}
                         name="image_url" 
-                        placeholder="Add a photo" 
+                        placeholder="Paste a Url to your image" 
                         defaultValue={recipe.image_url}>
                     </input><br/>
                     <label>Description</label><br/>
@@ -107,7 +107,7 @@ class RecipesInput extends React.Component {
                         type="text"  
                         ref={input => this.ingredientsRef = input}
                         name="ingredients" 
-                        placeholder="Ex) 2 Cups Chopped Carrots" 
+                        placeholder="For best results use commas to separate ingredients" 
                         defaultValue={recipe.ingredients}>
                     </input><br/>
                     <label>Cook Time</label><br/>
