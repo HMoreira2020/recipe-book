@@ -472,7 +472,6 @@ img {
 .book-grid-item {
     display: inline-grid;
     border: 1px;
-    box-shadow: ;
     padding: 30px;
     text-align: center;
     height: 400px;

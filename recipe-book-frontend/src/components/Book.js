@@ -36,9 +36,6 @@ const Book = (props) => {
             </div>
             
             {(book.recipes.length !== 0) ? <RecipesContainer book={book} /> : null}
-       
-            {/* <RecipesContainer book={book} />  */}
-
         </div>
     )
 }
