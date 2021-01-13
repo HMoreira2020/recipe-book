@@ -14,7 +14,5 @@ export const addBook = (book) => {
             dispatch({type: "ADD_BOOK", payload: book})
             alert("Book created")
         })
-        //takes json response and dispatches it to reducer to update state with new book
-        //right away adding to redux store without refetching the data here 
     };
   };
