@@ -6,7 +6,6 @@ import {Route, Switch} from 'react-router-dom'
 
 
 class RecipesContainer extends React.Component {
-   
     
     render() {
         const {book} = this.props
