@@ -14,7 +14,7 @@ class RecipesInput extends React.Component {
     handleOnSubmit = event => {
         event.preventDefault();
         const recipeId = parseInt(event.target.id)
-        const {editMode} = this.props;
+        const {editMode, editRecipe, book, history, addRecipe} = this.props;
         const name = this.nameRef.value
         const overview = this.descriptionRef.value
         const ingredients = this.ingredientsRef.value
@@ -40,8 +40,8 @@ class RecipesInput extends React.Component {
                 instructions_4,
                 instructions_5 
             }
-            this.props.editRecipe(recipeData, recipeId, this.props.book.id)
-            this.props.history.push(`/books/${this.props.book.id}/recipes/${recipeId}`);
+            editRecipe(recipeData, recipeId, book.id)
+            history.push(`/books/${book.id}/recipes/${recipeId}`);
         } else {
             const newRecipe = {
                 name,
@@ -57,8 +57,8 @@ class RecipesInput extends React.Component {
                 instructions_5, 
                 editing: false
             }
-            this.props.addRecipe(newRecipe, this.props.book.id)
-            this.props.history.push(`/books/${this.props.book.id}/recipes`)
+            addRecipe(newRecipe, book.id)
+            history.push(`/books/${book.id}/recipes`)
         }
     }
 
@@ -66,9 +66,8 @@ class RecipesInput extends React.Component {
     
 
     render(){
-        console.log(this.props)
-        const {editMode} = this.props
-        const recipe = this.props.editMode ? this.props.book.recipes.find(recipe => recipe.id === parseInt(this.props.match.params.id)) : this.props.recipe
+        const {editMode, book, match} = this.props
+        const recipe = editMode ? book.recipes.find(recipe => recipe.id === parseInt(match.params.id)) : this.props.recipe
         const pageTitle = editMode ? 'Edit Your Recipe' : 'Create Your Recipe';
         const buttonTitle = editMode ? 'Update' : 'Add';
         return(
