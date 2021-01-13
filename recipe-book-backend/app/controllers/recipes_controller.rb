@@ -25,9 +25,9 @@ class RecipesController < ApplicationController
 
     end 
 
-    def show 
-        render json: RecipeSerializer.new(@recipe).to_serialized_json
-    end 
+    # def show 
+    #     render json: RecipeSerializer.new(@recipe).to_serialized_json
+    # end 
 
     def update
         if @recipe.update(recipe_params) 

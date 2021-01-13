@@ -16,9 +16,9 @@ class BooksController < ApplicationController
 
    end 
 
-   def show 
-       render json: BookSerializer.new(@book).to_serialized_json
-   end 
+#    def show 
+#        render json: BookSerializer.new(@book).to_serialized_json
+#    end 
 
    def update
     if @book.update(book_params)
