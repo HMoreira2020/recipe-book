@@ -7,9 +7,18 @@ import {Route, Switch} from 'react-router-dom'
 
 
 class RecipesListContainer extends React.Component {
+    state = {
+        query: ""
+    }
     
     componentDidMount(){
         this.props.fetchRecipes()
+    }
+
+    search = (query) => {
+        this.setState({
+            query: query
+        })
     }
     
     render() {

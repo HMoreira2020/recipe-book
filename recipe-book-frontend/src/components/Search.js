@@ -5,7 +5,7 @@ const Search = (props) => {
       <>
       <form className="search" action="">
         <input type="search" placeholder="Search Recipes"
-          onChange={(event)=>props.callback(event.target.value)}
+          onChange={(event)=>props.search(event.target.value)}
         />
          <button className="search-btn" type="submit">Search</button>
       </form>
