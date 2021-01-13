@@ -7,19 +7,18 @@ import {Route, Switch} from 'react-router-dom'
 
 class RecipesContainer extends React.Component {
    
-    //is passed the book info from the book component
+    
     render() {
-        
-        console.log(this.props)
+        const {book} = this.props
         return (
             <div className="Recipes-Container">
              <Switch> 
-                    <Route path='/books/:bookId/recipes/:id/edit' render={(routerProps)=> <RecipesInput {...routerProps} book={this.props.book} editMode={true} />}  /> 
-                    <Route path='/books/:bookId/recipes/new' render={(routerProps)=> <RecipesInput {...routerProps} book={this.props.book} editMode={false} />}  />
-                    <Route path='/books/:bookId/recipes/:id' render={(routerProps)=> <Recipe {...routerProps} book={this.props.book} recipes={this.props.book.recipes}/>} /> 
+                    <Route path='/books/:bookId/recipes/:id/edit' render={(routerProps)=> <RecipesInput {...routerProps} book={book} editMode={true} />}  /> 
+                    <Route path='/books/:bookId/recipes/new' render={(routerProps)=> <RecipesInput {...routerProps} book={book} editMode={false} />}  />
+                    <Route path='/books/:bookId/recipes/:id' render={(routerProps)=> <Recipe {...routerProps} book={book} recipes={book.recipes}/>} /> 
                 </Switch> 
-               {/* render the recipes component that renders each recipe as a link */}
-                <Recipes book={this.props.book} recipes={this.props.book && this.props.book.recipes}/> 
+               
+                <Recipes book={book} recipes={book && book.recipes}/> 
 
             </div>
         )

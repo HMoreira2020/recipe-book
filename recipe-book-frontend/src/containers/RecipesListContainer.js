@@ -13,11 +13,12 @@ class RecipesListContainer extends React.Component {
     }
     
     render() {
+        const {recipes} = this.props
         return (
             <div className="Recipes-List-Container">
                 <Switch>
-                    <Route path='/recipes-list/:id' render={(routerProps)=> <Recipe {...routerProps} recipes={this.props.recipes}/>} />
-                    <Route path='/recipes-list' render={(routerProps)=> <RecipesList {...routerProps} recipes={this.props.recipes}/>} />
+                    <Route path='/recipes-list/:id' render={(routerProps)=> <Recipe {...routerProps} recipes={recipes}/>} />
+                    <Route path='/recipes-list' render={(routerProps)=> <RecipesList {...routerProps} recipes={recipes}/>} />
                 </Switch>
             </div>  
         )
