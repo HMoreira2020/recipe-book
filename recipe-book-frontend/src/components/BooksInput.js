@@ -47,7 +47,7 @@ class BooksInput extends React.Component {
             <div className="Books-Input">
                 <form id={book.id} onSubmit={this.handleOnSubmit}>
                     <h3 className="input-title">{pageTitle}</h3>
-                    <label>Title</label><br/>
+                    {/* <label>Title</label><br/> */}
                     <input 
                         required
                         ref={input => this.titleRef = input} 
@@ -56,7 +56,7 @@ class BooksInput extends React.Component {
                         placeholder="Title" 
                         defaultValue={book.title}>
                     </input><br/>
-                    <label>Description</label><br/>
+                    {/* <label>Description</label><br/> */}
                     <input 
                         required
                         ref={input => this.descriptionRef = input} 

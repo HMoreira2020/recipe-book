@@ -444,6 +444,7 @@ img.grid-recipe-image {
 }
 
 input[type=search] {
+  width: 275px;
   padding: 10px 5px;
   float: left;
   color: #ccc;
