@@ -8,11 +8,10 @@ const Recipes = (props) => {
     //rendering a books recipes
     //first time this runs or when refreshed the recipes are undefined because store and state have not been updated 
     //any time we refresh the BooksContainer will remount and in the componentDidMount the books are fetched and store updated
+    
     return (
-        
         <div class="recipes">
            <h3 className="table-of-contents">Table of Contents</h3>
-           
            {/* iterate through the books recipes and display a link to the recipe */}
            <div className="recipes-links">
             {props.recipes && props.recipes.map((recipe, index) => 

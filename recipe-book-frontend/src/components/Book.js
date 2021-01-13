@@ -5,27 +5,23 @@ import {deleteBook} from '../actions/deleteBook'
 import { Link, withRouter } from 'react-router-dom'
 
 
-
-
-// //must pass in props when it's a functional component
 const Book = (props) => {
   const {match, books, history} = props
-    //grab specific book by id props.match from current path - '/books/1'
-    // //have access to props.match because I passed routerProps in to the Router
-    let book = books.find(book => book.id === parseInt(match.params.id))
-
-    if (!book) {
-        return (
-          <section>
-            <h2>Book not found!</h2>
-          </section>
-        )
-      }
     
-
-    const handleDeleteBook = (bookId) => {
-      props.deleteBook(bookId)
-      history.push(`/books`);
+  let book = books.find(book => book.id === parseInt(match.params.id))
+  
+  if (!book) {
+    return (
+      <section>
+        <h2>Book not found!</h2>
+      </section>
+    )
+  }
+    
+  
+  const handleDeleteBook = (bookId) => {
+    props.deleteBook(bookId)
+    history.push(`/books`);
   }
 
     return (
@@ -39,8 +35,9 @@ const Book = (props) => {
               <Link to={`/books/${book.id}/recipes/new`}>Add Recipe</Link>
             </div>
             
-           
-            <RecipesContainer book={book} /> 
+            {(book.recipes.length !== 0) ? <RecipesContainer book={book} /> : null}
+       
+            {/* <RecipesContainer book={book} />  */}
 
         </div>
     )
