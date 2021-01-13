@@ -1,70 +1,80 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1>RECIPE BOOK</h1>
+About the Project<br>
+Built With<br>
+Getting Started<br>
+Installation<br>
+Contributing<br>
+License<br>
+Contact<br>
+Acknowledgements<br>
 
-## Available Scripts
 
-In the project directory, you can run:
+<h2>About the Project</h2> 
+Recipe Book helps you to keep track of your favorite recipes, whether you've created them or not.  Organize your favorites into different recipe books with a common theme throughout, like Pizza creations and Sweet Vegan Treats.    First, create a new Recipe Book.  Then add your first recipe using the New Recipe form and see it appear in the Table of Contents.  
 
-### `yarn start`
+![Screen Shot 2021-01-12 at 8 56 15 PM](https://user-images.githubusercontent.com/59266501/104404796-c35a8e80-5518-11eb-999d-9278a39f993d.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Add more books, edit them or delete them.  Add more recipes, edit them and remove them from your book.  
+Browse all books and all recipes on the site to get inspiration. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![Screen Shot 2021-01-12 at 8 56 33 PM](https://user-images.githubusercontent.com/59266501/104404798-c5bce880-5518-11eb-934e-b938fda3ae34.png)
 
-### `yarn test`
+This is a Single Page Application project using Ruby on Rails backend API and a frontend built with React, Redux, HTML and CSS.  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h2>Built With</h2>
+Ruby 
+Rails 
+React
+Redux
+JSX
+CSS
+HTML
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+<h2>Getting Started</h2>
+Run 'rails s' in your terminal while in the backend directory.
+Open and second terminal and cd into frontend directory.
+Run 'npm start'
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<h2>Installation</h2>
+Go to https://github.com/HMoreira2020/recipe-book
+Click Clone or Download
+Click the clipboard icon next to the link to copy
+In your Command Line or Terminal, type 'git clone' and paste the URL and then hit enter
+CD into the Recipe Book directory 
+Run 'bundle install'
+Run 'rails db:migrate'
+Run 'rails db:seed' (Optional)
+cd ito recipe-book-backend and run 'rails s' to start your server 
+open a second terminal and cd into recipe-book-frontend and run 'npm start' to start. 
+Go to 'localhost:3001/' in your browser if browser window does not automatically open. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<h2>Contributing</h2>
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are greatly appreciated.
 
-## Learn More
+Fork the Project
+Create your Feature Branch (git checkout -b feature/AmazingFeature)
+Commit your Changes (git commit -m 'Add some AmazingFeature')
+Push to the Branch (git push origin feature/AmazingFeature)
+Open a Pull Request
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<h2>License</h2>
+Distributed under the MIT License. https://opensource.org/licenses/MIT
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+<h2>Contact</h2>
+Heather Moreira - moreiraheather@gmail.com
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Project Link: https://github.com/HMoreira2020/recipe-book
 
-### Analyzing the Bundle Size
+<h2>Acknowledgements</h2>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<h2>Ruby version</h2>
+ruby '2.6.1'
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
