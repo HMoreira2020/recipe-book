@@ -5,7 +5,6 @@ why does the route work now since I changed it from /recipes to /recipes-list
 authentication before deleting or adding - need a user? 
 fetch the info i need to avoid losing everything on refresh?
 
-why does the recipe title wrap? 
 how can I add the responsiveness to my web pages - resizing the window 
 
 

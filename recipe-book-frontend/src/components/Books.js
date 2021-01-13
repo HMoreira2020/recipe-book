@@ -10,12 +10,13 @@ const Books = (props) => {
            <div className="books-grid-container">
             {props.books && props.books.map(book => 
                 <div className="book-grid-item" key={book.id}>
-                    <div className="card u-clearfix">
-                    <h2 className="book-title">{book.title}</h2>
-                    <span className="book-description">{book.description}</span>
-                    <Link to={`/books/${book.id}`}>Read</Link>
+                    <Link to={`/books/${book.id}`}>
+                        <div className="card u-clearfix">
+                        <h2 className="book-title">{book.title}</h2>
+                        <span className="book-description">{book.description}</span>
+                        </div>
+                    </Link>
                 </div>
-            </div>
             )}
         </div>
         </div>

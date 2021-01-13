@@ -1,5 +1,6 @@
 import React from 'react'
 import RecipesContainer from '../containers/RecipesContainer'
+import RecipesInput from './RecipesInput'
 import {connect} from 'react-redux'
 import {deleteBook} from '../actions/deleteBook'
 import { Link, withRouter } from 'react-router-dom'
@@ -35,7 +36,7 @@ const Book = (props) => {
               <Link to={`/books/${book.id}/recipes/new`}>Add Recipe</Link>
             </div>
             
-            {(book.recipes.length !== 0) ? <RecipesContainer book={book} /> : null}
+            {(book.recipes.length !== 0) ? <RecipesContainer book={book} /> : <RecipesInput book={book} />}
         </div>
     )
 }

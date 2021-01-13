@@ -25,7 +25,7 @@ const Recipe = ({match, recipes, history, book, deleteRecipe}) => {
       
       <div className="recipe">
           
-          <div class="recipe-head">
+          <div className="recipe-head">
             <h2 className="recipe-title">{recipe.name}</h2>
               <div className="recipe-description">{recipe.overview}</div>
               {book ? <p className="recipe-controls"><button onClick={() => handleDelete(book.id, recipe.id)}>Remove</button> |

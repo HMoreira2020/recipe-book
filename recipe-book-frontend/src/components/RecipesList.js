@@ -8,14 +8,14 @@ const RecipesList = (props) => {
             <div className="recipes-grid-container">
             {props.recipes && props.recipes.map(recipe => 
                 <div className="recipe-grid-item" key={recipe.id}>
-                    <div className="card u-clearfix">
-                        <h2 className="recipe-title">{recipe.name}</h2>
-                        <span className="recipe-description">{recipe.overview}</span>
-                        <Link to={`/recipes-list/${recipe.id}`}>Read</Link>
-                
-                    {/* <img className="recipe-card-media" src={recipe.image_url} alt={recipe.name}></img> */}
+                    <Link className="recipes-list-link" to={`/recipes-list/${recipe.id}`}>
+                        <img className="grid-recipe-image" src={recipe.image_url} alt={recipe.name}></img>
+                        <div className="recipe-grid-title-middle">
+                            <div className="recipe-grid-name">{recipe.name}</div>
+                        </div>
+                    </Link>
                 </div>
-            </div>
+            
             )}
         </div>
        </div>

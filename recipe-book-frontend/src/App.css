@@ -68,15 +68,14 @@ h2 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 40px;
     font-weight: 300;
-    line-height: 0px;
     margin: 2px 0;
     text-align: center;
-    padding: 30px;
+    
    
 }
 
 .recipes {
-    float: right;
+    margin: auto;
     max-width: 50%;
     padding: 30px 0px;   
     background: white;
@@ -84,16 +83,15 @@ h2 {
 }
 
 .recipes-links {
-  /* width: 90%;
-  background-color: #FAF7F2; */
-  padding: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   margin: auto;
-  /* border: 2px solid rgba(0,0,0,0.15); */
+
 }
 
 .recipe {
     max-width: 50%;
-    float: left;
+    margin: auto;
     padding: 30px 0px 50px 0px;  
     background-color: white;
     border: 2px solid rgba(0,0,0,0.15);
@@ -122,6 +120,7 @@ h2 {
     font-weight: 300;
     max-width: 70%;
     margin: auto;
+    margin-bottom: 10px;
 }
 
 .recipe-controls {
@@ -332,7 +331,7 @@ ul {
 
 .Recipes-Input {
     width: 50%;
-    float: left;
+    margin: auto;
     padding: 30px;
     background: white;
     border: 2px solid rgba(0,0,0,0.15);
@@ -407,7 +406,7 @@ input[type=text], select {
   .welcome-info {
     margin: 0;
     position: absolute;
-    top: 55%;
+    top: 58%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center; 
@@ -420,7 +419,7 @@ input[type=text], select {
 
   /* images */
   
-img {
+.recipe-info img {
     float: left;
     margin: 0px 30px 0px 0px;
     max-width: 60%;
@@ -437,20 +436,64 @@ img {
 
 .recipes-grid-container {
     display: grid;
-    grid-gap: 50px;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
     padding: 10px;
     width: 80vw;
     margin: auto;
 }
 
 .recipe-grid-item {
+    padding: 0 4px; 
+    position: relative;
     display: inline-grid;
-    border: 1px ;
-    padding: 30px;
-    background-color: white;
-    text-align: center;
-    box-shadow: 10px 10px 5px #aaaaaa;
+   
+}
+a.recipes-list-link {
+  padding: 0px 0px; 
+  margin: 0px;
+}
+
+.recipe-grid-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+}
+
+img.grid-recipe-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  transition: .5s ease;
+  backface-visibility: hidden;
+ 
+}
+
+.recipe-grid-title-middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.recipe-grid-item:hover .grid-recipe-image {
+  opacity: 0.3;
+}
+
+.recipe-grid-item:hover .recipe-grid-title-middle {
+  opacity: 1;
+}
+
+.recipe-grid-name {
+  background-color: black;
+  font-family: 'Cormorant Garamond', serif;
+  color: white;
+  font-size: 20px;
+  padding: 16px 32px;
 }
 
 /* books grid */
@@ -462,8 +505,8 @@ img {
 
 .books-grid-container {
     display: grid;
-    grid-gap: 50px;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
     padding: 10px;
     width: 80vw;
     margin: auto;
@@ -472,10 +515,16 @@ img {
 .book-grid-item {
     display: inline-grid;
     border: 1px;
+    border-radius: 2px;
     padding: 30px;
     text-align: center;
     height: 400px;
+    width: 300px;
     background-color: white;
     box-shadow: 10px 10px 5px #aaaaaa;
 }
-  
+
+.book-grid-item:hover {
+  opacity: 0.3;
+  font-size: 150%
+}
