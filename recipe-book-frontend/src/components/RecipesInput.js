@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { addRecipe } from '../actions/addRecipe'
 import { editRecipe } from '../actions/editRecipe'
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom'
+
 
 
 class RecipesInput extends React.Component {
@@ -40,8 +40,7 @@ class RecipesInput extends React.Component {
                 instructions_4,
                 instructions_5 
             }
-            editRecipe(recipeData, recipeId, book.id)
-            history.push(`/books/${book.id}/recipes/${recipeId}`);
+            editRecipe(recipeData, recipeId, book.id)   
         } else {
             const newRecipe = {
                 name,
@@ -58,7 +57,6 @@ class RecipesInput extends React.Component {
                 editing: false
             }
             addRecipe(newRecipe, book.id)
-            history.push(`/books/${book.id}/recipes`)
         }
     }
 
@@ -197,4 +195,4 @@ RecipesInput.defaultProps = {
 }
 
 
-export default withRouter(connect(null, {addRecipe, editRecipe})(RecipesInput))
+export default connect(null, {addRecipe, editRecipe})(RecipesInput)

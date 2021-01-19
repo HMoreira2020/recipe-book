@@ -31,7 +31,7 @@ class RecipesList extends React.Component {
     render() {
         const {recipes} = this.props
         return (
-            <div className="Recipes-List-Container">
+            <div className="Recipes-List">
                 <h1 className="recipes-list-title">Recipes</h1>
                 {/* handleSearch is called on change when user types in somethign in search field */}
                 <div><Search handleSearch={this.handleSearch} /></div>

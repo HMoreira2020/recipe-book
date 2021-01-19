@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Recipes = ({recipes, book}) => {
     return (
-        <div class="recipes">
+        <div className="recipes">
            <h3 className="table-of-contents">Table of Contents</h3>
            <div className="recipes-links">
                 {recipes && recipes.map((recipe, index) => 

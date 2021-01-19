@@ -338,8 +338,8 @@ input[type=text], select {
 
 .recipes-grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
     padding: 10px;
     width: 80vw;
     margin: auto;
@@ -347,7 +347,7 @@ input[type=text], select {
 
 .recipe-grid-item {
     max-width: 391px;
-    padding: 0 4px; 
+    padding: 0 4px 4px 0; 
     position: relative;
     display: inline-grid;
    
@@ -409,7 +409,7 @@ img.grid-recipe-image {
 .books-grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
     padding: 10px;
     width: 80vw;
     margin: auto;
@@ -419,6 +419,7 @@ img.grid-recipe-image {
     display: inline-grid;
     border: 1px;
     border-radius: 2px;
+    margin: 4px;
     padding: 30px;
     text-align: center;
     height: 400px;
@@ -427,8 +428,9 @@ img.grid-recipe-image {
     box-shadow: 10px 10px 5px #aaaaaa;
 }
 
+
 .book-grid-item:hover {
-  opacity: 0.3;
+  /* opacity: 0.3; */
   font-size: 150%
 }
 
