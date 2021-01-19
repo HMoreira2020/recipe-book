@@ -21,7 +21,7 @@ const Book = (props) => {
     
   const handleDeleteBook = (bookId) => {
     props.deleteBook(bookId)
-    history.push(`/books`);
+    history.push(`/books`)
   }
 
     return (

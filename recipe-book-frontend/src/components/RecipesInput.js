@@ -1,6 +1,7 @@
 // form for create a new books 
 import React from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 //imports must be in curly braces if you don't "export default"
 import { addRecipe } from '../actions/addRecipe'
 import { editRecipe } from '../actions/editRecipe'
@@ -41,6 +42,7 @@ class RecipesInput extends React.Component {
                 instructions_5 
             }
             editRecipe(recipeData, recipeId, book.id)   
+            history.push(`/books/${book.id}/recipes/${recipeId}`)
         } else {
             const newRecipe = {
                 name,
@@ -57,6 +59,7 @@ class RecipesInput extends React.Component {
                 editing: false
             }
             addRecipe(newRecipe, book.id)
+            history.push(`/books/${book.id}/recipes`)
         }
     }
 
@@ -195,4 +198,4 @@ RecipesInput.defaultProps = {
 }
 
 
-export default connect(null, {addRecipe, editRecipe})(RecipesInput)
+export default withRouter(connect(null, {addRecipe, editRecipe})(RecipesInput))

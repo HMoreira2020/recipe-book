@@ -1,6 +1,7 @@
 // form for create a new books 
 import React from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 //imports must be in curly braces if you don't "export default"
 import { addBook } from '../actions/addBook'
 import { editBook } from '../actions/editBook'
@@ -16,7 +17,7 @@ class BooksInput extends React.Component {
         event.preventDefault();
         const bookId = parseInt(event.target.id)
         // const {editMode} = this.props;
-        const {editBook, editMode, addBook} = this.props
+        const {editBook, history, editMode, addBook} = this.props
         const title = this.titleRef.value
         const description = this.descriptionRef.value
         if (editMode) {
@@ -33,6 +34,7 @@ class BooksInput extends React.Component {
             }
             addBook(newBook)
         }
+        history.push('/books')
     }
     
 
@@ -85,4 +87,4 @@ BooksInput.defaultProps = {
     }    // Pass defined Post object in create mode in order not to get undefined objects in 'defaultValue's of inputs.
 }
 
-export default connect(null, {addBook, editBook})(BooksInput)
+export default withRouter(connect(null, {addBook, editBook})(BooksInput))
