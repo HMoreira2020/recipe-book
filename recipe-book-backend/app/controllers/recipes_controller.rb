@@ -8,7 +8,7 @@ class RecipesController < ApplicationController
             recipes = @book.recipes
             render json: RecipeSerializer.new(recipes).to_serialized_json
         else 
-            recipes = Recipe.all 
+            recipes = Recipe.all.order(:name)
             render json: RecipeSerializer.new(recipes).to_serialized_json
         end
     end 

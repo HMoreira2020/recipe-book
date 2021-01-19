@@ -4,5 +4,6 @@ class Recipe < ApplicationRecord
 
     validates :name, :image_url, :overview, :ingredients, :cook_time, :prep_time, :instructions_1, presence: :true 
 
-    
+   
+
 end

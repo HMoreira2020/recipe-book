@@ -21,6 +21,17 @@ recipe = Recipe.create(
     instructions_4: "",
     instructions_5: ""
     )
+recipe_2 = Recipe.create(
+    name: "'Good on Everything' Sauce", 
+    image_url: "https://i.pinimg.com/564x/6e/dc/07/6edc077c9718cb7814a4c81ec809a700.jpg", 
+    overview: "Keep this around for a quick and delicious salad dressing, but my husband puts it on everything from pizza to tacos!", 
+    ingredients: "2 cups olive oil, 4 raw garlic cloves minced, 2 tsp lemon juice, 3 tbsps dijon or honey dijon mustard, dash salt, 1 tbsp maple syrup", 
+    cook_time: "0 minutes", 
+    prep_time: "15 minutes", 
+    instructions_1: "Put everything together in a jar and shake until well incorporated.  Do not refrigerate. Lasts for about a week on the counter"
+)
 book = Book.create(title: 'Healthy Favorites', description: "Recipes we eat weekly")
+book_2 = Book.create(title: 'Healthy Sauces', description: 'Salad dressings and sauces')
 book.recipes << recipe
+book_2.recipes << recipe_2
 book.save 
