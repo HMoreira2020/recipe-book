@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import LikeButton from './LikeButton'
 
 //must pass in props when it's a functional component
 const Books = ({books}) => {
-    
+
     return (
         <div className="books">
            <h1 className="book-title">Recipe Books</h1>
@@ -16,6 +17,7 @@ const Books = ({books}) => {
                         <span className="book-description">{book.description}</span>
                         </div>
                     </Link>
+                    <LikeButton /> 
                 </div>
             )}
         </div>

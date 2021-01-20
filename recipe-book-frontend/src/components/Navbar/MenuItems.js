@@ -18,11 +18,11 @@ export const MenuItems = [
         title: "Create A Recipe Book", 
         url: "/books/new",
         cName: 'nav-links'
-    },
-    {
-        title: "Sign Up", 
-        url: "#",
-        cName: 'nav-links-mobile'
     }
+    // {
+    //     title: "Sign Up", 
+    //     url: "#",
+    //     cName: 'nav-links-mobile'
+    // }
     
 ]
